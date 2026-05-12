@@ -11,6 +11,8 @@
 
 -export([]).
 
+-spec test() -> 'ok'.
+
 -include_lib("eunit/include/eunit.hrl").
 -include("ecallmgr.hrl").
 

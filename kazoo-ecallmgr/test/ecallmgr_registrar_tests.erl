@@ -11,6 +11,8 @@
 %%%-----------------------------------------------------------------------------
 -module(ecallmgr_registrar_tests).
 
+-spec test() -> 'ok'.
+
 -include_lib("eunit/include/eunit.hrl").
 
 -define(CONTACTS
@@ -48,6 +50,7 @@
          }
         ]).
 
+-spec registrar_summary_test_() -> any().
 registrar_summary_test_() ->
     lists:flatmap(fun contact_props/1, ?CONTACTS).
 
