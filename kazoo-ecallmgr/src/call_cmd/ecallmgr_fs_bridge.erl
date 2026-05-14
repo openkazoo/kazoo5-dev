@@ -329,11 +329,16 @@ pre_exec(DP, _Node, _UUID, _Channel, JObj) ->
     ].
 
 -spec post_exec(kz_term:proplist(), kz_term:ne_binary()) -> kz_term:proplist().
-post_exec(DP, _AppUUID) ->
-    [{"application", "park"} | DP].
+post_exec(DP, AppUUID) ->
+    Props = [{<<"Application-UUID">>, AppUUID}],
+    Event = ecallmgr_util:create_masquerade_event(<<"bridge">>, <<"CHANNEL_EXECUTE_COMPLETE">>, Props),
+    [{"application", Event}
+    ,{"application", "park"}
+     |DP
+    ].
 
 -spec create_command(kz_term:proplist(), atom(), kz_term:ne_binary(), channel(), kz_json:object(), kz_term:ne_binary()) -> kz_term:proplist().
-create_command(DP, Node, UUID, #channel{profile=ChannelProfile}, JObj, AppUUID) ->
+create_command(DP, Node, UUID, #channel{profile=ChannelProfile}, JObj, _AppUUID) ->
     BypassAfterBridge = ?BYPASS_MEDIA_AFTER_BRIDGE,
     BridgeProfile = kz_term:to_binary(kz_json:get_value(<<"SIP-Interface">>, JObj, ?DEFAULT_FS_PROFILE)),
     EPs = kz_json:get_list_value(<<"Endpoints">>, JObj, []),
@@ -344,9 +349,8 @@ create_command(DP, Node, UUID, #channel{profile=ChannelProfile}, JObj, AppUUID) 
     lager:debug("lifting from leg to channel: ~s", [kz_json:encode(CommonProperties)]),
     UpdatedJObj = kz_json:set_value(<<"Endpoints">>, UniqueEndpoints, kz_json:merge(JObj, CommonProperties)),
 
-    BridgeApp = kz_app_config:get_ne_binary(?APP, [<<"dialplan">>, <<"apps">>, <<"bridge">>], <<"kz_bridge">>),
-    Scope = list_to_binary(["/^[app_uuid=",AppUUID,"^app_uuid_name=bridge]"]),
-    LiftedCmd = list_to_binary([BridgeApp, " ", Scope
+    BridgeApp = kz_app_config:get_ne_binary(?APP, [<<"dialplan">>, <<"apps">>, <<"bridge">>], <<"bridge">>),
+    LiftedCmd = list_to_binary([BridgeApp, " "
                                ,build_channels_vars(Node, UUID, UniqueEndpoints, UpdatedJObj)
                                ,try_create_bridge_string(UniqueEndpoints, UpdatedJObj)
                                ]),
