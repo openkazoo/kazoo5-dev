@@ -602,8 +602,9 @@ maybe_endpoint_privacy_header(Prop) ->
     end.
 
 -spec get_channel_vars(kz_json:object() | kz_term:proplist()) -> iolist().
+get_channel_vars([]) -> [];
 get_channel_vars(Param) ->
-    get_channel_vars(Param, "<", ">").
+    get_channel_vars(Param, "{", "}").
 
 -spec get_channel_vars(kz_json:object() | kz_term:proplist(), string(), string()) -> iolist().
 get_channel_vars(Param, Open, Close) ->
@@ -724,11 +725,11 @@ kazoo_var_to_fs_var({<<"Hold-Media">>, Media}, Vars) ->
 kazoo_var_to_fs_var({<<"Codecs">>, []}, Vars) ->
     Vars;
 kazoo_var_to_fs_var({<<"Codecs">>, Cs}, Vars) ->
-    Codecs = [codec_mappings(C)
+    Codecs = [kz_term:to_list(codec_mappings(C))
               || C <- Cs,
                  not kz_term:is_empty(C)
              ],
-    Val = kz_binary:join(Codecs, <<",">>),
+    Val = ["^^:", string:join(Codecs, ":")],
     [encode_fs_val("absolute_codec_string", Val) | Vars];
 
 %% SPECIAL CASE: Timeout must be larger than zero
