@@ -2,7 +2,10 @@
 	<field name="Custom-Channel-Vars" type="static" serialize-as="object">
 		<fields>
 
-			<field name="ccvs" type="prefixes" exclude-prefix="true" value="X-ecallmgr_|variable_sip_h_X-ecallmgr_|variable_ecallmgr_|ecallmgr_"/>
+			<field name="X-ecallmgr_" type="prefix" exclude-prefix="true" />
+			<field name="variable_sip_h_X-ecallmgr_" type="prefix" exclude-prefix="true" />
+			<field name="variable_ecallmgr_" type="prefix" exclude-prefix="true" />
+			<field name="ecallmgr_" type="prefix" exclude-prefix="true" />
 
 			<field name="variable_Fetch-UUID" as="Fetch-ID" />
 			<field name="Fetch-UUID" as="Fetch-ID" />
