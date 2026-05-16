@@ -24,3 +24,11 @@ Over time, the work done in this repo will be cherry-picked into the appropriate
 ## Contributing
 
 All issues, pull requests, ideas, and thoughts are welcome.
+
+## Todo / Known Issues
+
+- [ ] Add rebar3 support
+- [ ] Add `prompt://` support to [mod_kazoo](https://github.com/openkazoo/freeswitch-mod_kazoo)
+- [ ] Add `kz_audio_fork_*` support using work started in [mod_audio_stream](https://github.com/openkazoo/freeswitch-mod_audio_stream)
+- [ ] Import (and test) community apps (acdc, edr, konami, etc)
+- [ ] Import community changes from [openkazoo/kazoo@4.4](https://github.com/openkazoo/kazoo/tree/4.4)
