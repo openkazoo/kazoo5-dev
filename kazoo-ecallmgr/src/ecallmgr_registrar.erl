@@ -288,8 +288,11 @@ proxy_vars_fold({<<"Proxy-Protocol">>, Proto}, Props, _Options) ->
         _ -> Props
     end;
 proxy_vars_fold({<<"AOR">>, AOR}, Props, #{token_registration := 'true'}) ->
-    [{<<"SIP-Invite-To-URI">>, AOR}
+    [{<<"SIP-Invite-Request-URI">>, AOR}
+    ,{<<"SIP-Invite-URI">>, AOR}
+    ,{<<"SIP-Invite-To-URI">>, AOR}
     ,{<<"KAZOO-AOR">>, AOR}
+    ,{<<"X-KAZOO-INVITE-FORMAT">>, <<"contact">>}
     | Props
     ];
 proxy_vars_fold(_Prop , Props, _Options) -> Props.

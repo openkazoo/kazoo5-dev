@@ -1,12 +1,12 @@
 <definition name="Custom-AUTH-Headers">
 	<field name="Custom-AUTH-Headers" type="static" serialize-as="object">
 		<fields>
-			<field name="variable_sip_h_X-AUTH-" type="prefix" exclude-prefix="true" />
-			<field name="variable_sip_h_X-FS-AUTH-" type="prefix" exclude-prefix="true" />
-			<field name="sip_h_X-AUTH-" type="prefix" exclude-prefix="true" />
-			<field name="sip_h_X-FS-AUTH-" type="prefix" exclude-prefix="true" />
-			<field name="X-AUTH-" type="prefix" exclude-prefix="true" />
-			<field name="X-FS-AUTH-" type="prefix" exclude-prefix="true" />
+			<field name="X-AUTH-IP" as="IP" />
+			<field name="X-AUTH-PORT" as="PORT" />
+			<field name="X-AUTH-Token" as="Token" />
+			<field name="X-AUTH-URI-User" as="URI-User" />
+			<field name="X-AUTH-URI-Realm" as="URI-Realm" />
+			<field name="X-AUTH-From-User" as="From-User" />
 		</fields>
 	</field>
 </definition>

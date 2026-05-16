@@ -88,13 +88,15 @@ fetch_from_registrar(#{fetch_id := FetchId, node := Node, payload := JObj}=Conte
         {'ok', 'undefined', _Props} ->
             location_not_found(Context);
         {'ok', Proxy, Props} ->
-            {'ok', Xml} = ecallmgr_fs_xml:directory_resp_location_xml(Proxy, Props, JObj),
+            Props1 = internal_source_props(JObj, Props),
+            {'ok', Xml} = ecallmgr_fs_xml:directory_resp_location_xml(Proxy, Props1, JObj),
             lager:debug("sending directory location (~s/~s) XML to ~w for request ~s"
                        ,[EndpointId, AccountId, Node, FetchId]
                        ),
             freeswitch:fetch_reply(Context#{reply => iolist_to_binary(Xml)});
         {'ok', Metas} ->
-            {'ok', Xml} = ecallmgr_fs_xml:directory_resp_location_xml(Metas, JObj),
+            Metas1 = internal_source_metas(JObj, Metas),
+            {'ok', Xml} = ecallmgr_fs_xml:directory_resp_location_xml(Metas1, JObj),
             lager:debug("sending ~B directory locations (~s/~s) XML to ~w for request ~s"
                        ,[length(Metas), EndpointId, AccountId, Node, FetchId]
                        ),
@@ -108,7 +110,7 @@ fetch_from_proxy(#{fetch_id := FetchId, node := Node, payload := JObj}=Context, 
         {'ok', RegObj} ->
             AOR = kz_json:get_json_value(<<"AOR">>, RegObj),
             Proxy = kz_json:get_ne_binary_value(<<"uri">>, AOR),
-            Props = proxy_props(AOR),
+            Props = internal_source_props(JObj, proxy_props(AOR)),
             {'ok', Xml} = ecallmgr_fs_xml:directory_resp_location_xml(Proxy, Props, JObj),
             lager:debug("sending directory location (~s/~s) XML to ~w for request ~s"
                        ,[EndpointId, AccountId, Node, FetchId]
@@ -124,6 +126,18 @@ build_search_req(EndpointId, AccountId) ->
     | kz_api:default_headers(?APP_NAME, ?APP_VERSION)
     ].
 
+-spec internal_source_metas(kz_json:object(), [{kz_term:ne_binary(), kz_term:proplist()}]) ->
+          [{kz_term:ne_binary(), kz_term:proplist()}].
+internal_source_metas(JObj, Metas) ->
+    [{Proxy, internal_source_props(JObj, Props)} || {Proxy, Props} <- Metas].
+
+-spec internal_source_props(kz_json:object(), kz_term:proplist()) -> kz_term:proplist().
+internal_source_props(JObj, Props) ->
+    case kzd_fetch:core_uuid(JObj) of
+        'undefined' -> Props;
+        CoreUUID -> props:set_value(<<"X-FS-Core-UUID">>, CoreUUID, Props)
+    end.
+
 -spec proxy_props(kz_json:object()) -> kz_term:proplist().
 proxy_props(JObj) ->
     Funs = [fun proxy_add_aor/2
@@ -134,8 +148,11 @@ proxy_props(JObj) ->
 -spec proxy_add_aor(kz_json:object(), kz_term:proplist()) -> kz_term:proplist().
 proxy_add_aor(JObj, Props) ->
     AOR = kz_json:get_ne_binary_value(<<"aor">>, JObj),
-    [{<<"SIP-Invite-To-URI">>, AOR}
+    [{<<"SIP-Invite-Request-URI">>, AOR}
+    ,{<<"SIP-Invite-URI">>, AOR}
+    ,{<<"SIP-Invite-To-URI">>, AOR}
     ,{<<"KAZOO-AOR">>, AOR}
+    ,{<<"X-KAZOO-INVITE-FORMAT">>, <<"contact">>}
     | Props
     ].
 
