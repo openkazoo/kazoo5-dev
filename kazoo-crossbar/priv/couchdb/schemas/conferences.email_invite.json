@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "conferences.email_invite",
+    "description": "Schema for conference email_invite",
+    "properties": {
+        "conference_link": {
+            "description": "Link to join the conference",
+            "support_level": "supported",
+            "type": "string"
+        },
+        "guests": {
+            "description": "List of email recipients to be invited to the conference",
+            "items": {
+                "format": "email",
+                "maxLength": 254,
+                "minLength": 5,
+                "type": "string"
+            },
+            "support_level": "supported",
+            "type": "array"
+        },
+        "invite_message": {
+            "description": "Invite message",
+            "support_level": "supported",
+            "type": "string"
+        }
+    },
+    "required": [
+        "guests",
+        "invite_message"
+    ],
+    "type": "object"
+}

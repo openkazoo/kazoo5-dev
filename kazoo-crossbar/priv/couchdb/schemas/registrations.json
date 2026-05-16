@@ -1,0 +1,139 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "registrations",
+    "description": "Device registration information",
+    "properties": {
+        "account_name": {
+            "description": "Account Name",
+            "type": "string"
+        },
+        "account_realm": {
+            "description": "Account SIP realm",
+            "type": "string"
+        },
+        "authorizing_id": {
+            "description": "Registering Device ID",
+            "type": "string"
+        },
+        "authorizing_type": {
+            "description": "Type of registered endpoint",
+            "type": "string"
+        },
+        "bridge_ruri": {
+            "description": "SIP URI used for bridging to endpoint",
+            "type": "string"
+        },
+        "call_id": {
+            "description": "REGISTER Call-ID",
+            "type": "string"
+        },
+        "contact": {
+            "description": "SIP Contact header",
+            "type": "string"
+        },
+        "contact_ip": {
+            "description": "Contact IP",
+            "type": "string"
+        },
+        "contact_port": {
+            "description": "Contact port",
+            "type": "integer"
+        },
+        "event_timestamp": {
+            "description": "Timestamp of registration",
+            "type": "integer"
+        },
+        "expires": {
+            "description": "Seconds until registration expiration",
+            "type": "integer"
+        },
+        "first_registration": {
+            "description": "First-seen registration",
+            "type": "boolean"
+        },
+        "from_host": {
+            "description": "SIP From Header Realm",
+            "type": "string"
+        },
+        "from_user": {
+            "description": "SIP From Header Username",
+            "type": "string"
+        },
+        "initial_registration": {
+            "description": "Timestamp of first registration",
+            "type": "integer"
+        },
+        "last_registration": {
+            "description": "Timestamp of latest registration",
+            "type": "integer"
+        },
+        "original_contact": {
+            "description": "Orignal SIP Contact",
+            "type": "string"
+        },
+        "presence_id": {
+            "description": "Presence ID",
+            "type": "string"
+        },
+        "proxy_ip": {
+            "description": "Registrar Proxy IP",
+            "type": "string"
+        },
+        "proxy_path": {
+            "description": "Registrar Proxy path",
+            "type": "string"
+        },
+        "proxy_port": {
+            "description": "Registrar Proxy port",
+            "type": "integer"
+        },
+        "proxy_protocol": {
+            "description": "Registrar Proxy protocol",
+            "type": "string"
+        },
+        "realm": {
+            "description": "Account SIP Realm",
+            "type": "string"
+        },
+        "register_overwrite_notify": {
+            "description": "Whether to overwrite NOTIFY",
+            "type": "boolean"
+        },
+        "registrar_node": {
+            "description": "Registrar Node name",
+            "type": "string"
+        },
+        "source_ip": {
+            "description": "Device source IP",
+            "type": "string"
+        },
+        "source_port": {
+            "description": "Device source port",
+            "type": "integer"
+        },
+        "suppress_unregister_notify": {
+            "description": "Should suppress Unregister notification",
+            "type": "boolean"
+        },
+        "to_host": {
+            "description": "SIP To Host",
+            "type": "string"
+        },
+        "to_user": {
+            "description": "SIP To Username",
+            "type": "string"
+        },
+        "user_agent": {
+            "description": "SIP User-Agent",
+            "type": "string"
+        },
+        "username": {
+            "description": "Device username",
+            "type": "string"
+        }
+    },
+    "required": [
+        "call_id"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,22 @@
+<definition name="cdr-extended-data">
+    <field name="Extended-Data" type="static" serialize-as="object">
+        <fields>
+            <field name="_json_channel_stats" as="Channel-Stats" serialize-as="raw"/>
+            <field name="_json_callflow" as="Channel-CallFlow" serialize-as="raw">
+                <filters>
+                    <filter name="Trace-Callflow" type="include" value="true" />
+                </filters>
+            </field>
+            <field name="_json_channel_media_errors" as="Channel-Media-Errors" serialize-as="raw">
+                <filters>
+                    <filter name="Trace-Media-Errors" type="include" value="true" />
+                </filters>
+            </field>
+            <field name="_json_application_log" as="Channel-Application-Log" serialize-as="raw">
+                <filters>
+                    <filter name="Trace-Application-Log" type="include" value="true" />
+                </filters>
+            </field>
+        </fields>
+	</field>
+</definition>

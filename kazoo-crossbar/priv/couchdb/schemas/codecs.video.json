@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "codecs.video",
+    "default": [],
+    "description": "A list of video codecs the endpoint supports",
+    "items": {
+        "enum": [
+            "H261",
+            "H263",
+            "H263+",
+            "H264",
+            "VP8",
+            "VP9"
+        ],
+        "type": "string"
+    },
+    "type": "array",
+    "uniqueItems": true
+}

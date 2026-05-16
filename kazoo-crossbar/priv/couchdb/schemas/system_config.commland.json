@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.commland",
+    "description": "Schema for commland system_config",
+    "properties": {
+        "base_url": {
+            "default": "https://packages.2600hz.com/commland/compatibility",
+            "description": "commland base_url for updates",
+            "type": "string"
+        },
+        "base_version": {
+            "default": "5.1",
+            "description": "kazoo base_version to use for updates",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

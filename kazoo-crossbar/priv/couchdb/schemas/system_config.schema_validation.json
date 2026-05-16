@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.schema_validation",
+    "description": "Schema for schema_validation system_config",
+    "properties": {
+        "validate_dns_records": {
+            "default": true,
+            "description": "schema_validation validate_dns_records",
+            "type": "boolean"
+        },
+        "validate_ip_addresses": {
+            "default": true,
+            "description": "schema_validation validate_ip_addresses",
+            "type": "boolean"
+        },
+        "validate_ports": {
+            "default": true,
+            "description": "schema_validation validate_ports",
+            "type": "boolean"
+        },
+        "validate_sip_hosts": {
+            "default": true,
+            "description": "schema_validation validate_sip_hosts",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

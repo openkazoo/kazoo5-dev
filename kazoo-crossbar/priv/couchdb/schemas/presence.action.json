@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "presence.action",
+    "description": "Action to be executed on this request",
+    "properties": {
+        "action": {
+            "default": "reset",
+            "description": "Action to be executed on this request",
+            "enum": [
+                "set",
+                "reset"
+            ],
+            "support_level": "supported",
+            "type": "string"
+        }
+    },
+    "required": [
+        "action"
+    ],
+    "type": "object"
+}

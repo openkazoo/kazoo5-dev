@@ -1,0 +1,12 @@
+{application,blackhole,
+             [{applications,[cowboy,kazoo_amqp,kazoo_apps,kazoo_auth,
+                             kazoo_bindings,kazoo_data,kazoo_documents,
+                             kazoo_modb,kazoo_stdlib,kazoo_token_buckets,
+                             kazoo_web,kernel,lager,ssl,stdlib]},
+              {description,"Blackhole: Websocket interface to KAZOO events"},
+              {env,[{is_kazoo_app,true}]},
+              {mod,{blackhole_app,[]}},
+              {modules,[]},
+              {registered,[blackhole_listener,blackhole_sup,
+                           blackhole_tracking]},
+              {vsn,"5.0.0"}]}.

@@ -1,0 +1,40 @@
+{
+    "_id": "_design/websites",
+    "kazoo": {
+        "view_map": [
+            {
+                "classification": "account"
+            }
+        ]
+    },
+    "language": "javascript",
+    "views": {
+        "crossbar_listing": {
+            "map": [
+                "function(doc) {",
+                "  if (doc.pvt_type != 'website' || doc.pvt_deleted) return;",
+                "  emit(doc._id, {",
+                "    id: doc._id,",
+                "    name: doc.name,",
+                "    web_url: doc.web_url,",
+                "    logo: doc.logo,",
+                "    users: doc.users,",
+                "    account_wide: doc.account_wide,",
+                "  });",
+                "}"
+            ]
+        },
+        "listing_by_user": {
+            "map": [
+                "function(doc) {",
+                "  if (doc.pvt_type != 'website' || doc.pvt_deleted) return;",
+                "  var users = doc.users || [];",
+                "  var checklist = users.concat([doc.account_wide]);",
+                "  for (var i in checklist) emit(checklist[i], {",
+                "    'name': doc.name || doc._id",
+                "  });",
+                "}"
+            ]
+        }
+    }
+}

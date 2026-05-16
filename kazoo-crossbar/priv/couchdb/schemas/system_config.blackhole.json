@@ -1,0 +1,160 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.blackhole",
+    "description": "Schema for blackhole system_config",
+    "properties": {
+        "acceptors": {
+            "default": 100,
+            "description": "blackhole acceptors",
+            "type": "integer"
+        },
+        "allowed_doc_types": {
+            "description": "Doc types that are allowed when binding for object events.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "autoload_modules": {
+            "default": [
+                "bh_token_auth",
+                "bh_call",
+                "bh_object",
+                "bh_fax",
+                "bh_conference",
+                "bh_events",
+                "bh_authz_subscribe",
+                "bh_presence"
+            ],
+            "description": "blackhole autoload modules",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "bindings": {
+            "description": "blackhole bindings",
+            "patternProperties": {
+                "[a-z_]+": {
+                    "description": "Patterns for the bindings exposed by the various modules",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "channel_events": {
+            "default": [
+                "CHANNEL_CREATE",
+                "CHANNEL_ANSWER",
+                "CHANNEL_DESTROY",
+                "CHANNEL_HOLD",
+                "CHANNEL_UNHOLD",
+                "CHANNEL_BRIDGE",
+                "PARK_PARKED",
+                "PARK_RETRIEVED",
+                "PARK_ABANDONED"
+            ],
+            "description": "blackhole channel_events",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "compress_response_body": {
+            "default": true,
+            "description": "blackhole compress_response_body",
+            "type": "boolean"
+        },
+        "extra_doc_modb_types": {
+            "default": [],
+            "description": "Extra types of docs that are stored in an MODb. These doc types are keyed differently when binding for object events.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "ip": {
+            "description": "blackhole ip",
+            "type": "string"
+        },
+        "max_connections_per_ip": {
+            "description": "blackhole max_connections_per_ip",
+            "type": "integer"
+        },
+        "max_queued_messages": {
+            "default": 50,
+            "description": "blackhole max_queued_messages",
+            "type": "integer"
+        },
+        "notification_events": {
+            "default": [
+                "missed_call"
+            ],
+            "description": "blackhole notification_events",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "port": {
+            "default": 5555,
+            "description": "blackhole port",
+            "type": "integer"
+        },
+        "request_timeout_ms": {
+            "default": 10000,
+            "description": "blackhole request_timeout_ms",
+            "type": "integer"
+        },
+        "send_timeout_ms": {
+            "default": 5000,
+            "description": "blackhole send_timeout_ms",
+            "type": "integer"
+        },
+        "ssl_ca_cert": {
+            "description": "blackhole ssl_ca_cert",
+            "type": "string"
+        },
+        "ssl_cert": {
+            "description": "blackhole ssl_cert",
+            "type": "string"
+        },
+        "ssl_key": {
+            "description": "blackhole ssl_key",
+            "type": "string"
+        },
+        "ssl_password": {
+            "default": "",
+            "description": "blackhole ssl_password",
+            "type": "string"
+        },
+        "ssl_port": {
+            "default": 5556,
+            "description": "blackhole ssl_port",
+            "type": "integer"
+        },
+        "ssl_workers": {
+            "default": 100,
+            "description": "blackhole ssl_workers",
+            "type": "integer"
+        },
+        "url": {
+            "description": "The advertised URL of the Kazoo websocket",
+            "type": "string"
+        },
+        "use_plaintext": {
+            "default": true,
+            "description": "blackhole use_plaintext",
+            "type": "boolean"
+        },
+        "use_ssl": {
+            "default": false,
+            "description": "blackhole use_ssl",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

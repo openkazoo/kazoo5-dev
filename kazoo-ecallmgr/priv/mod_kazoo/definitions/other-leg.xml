@@ -1,0 +1,18 @@
+<definition name="other-leg">
+	<field name="Other-Leg-Direction" />
+	<field name="Other-Leg-Caller-ID-Name" />
+	<field name="Other-Leg-Caller-ID-Number" />
+	<field name="Other-Leg-Destination-Number" />
+	<field name="Other-Leg-Call-ID" type="first-of"
+		value="Other-Leg-Unique-ID|Other-Leg-Call-ID|variable_origination_uuid|ent_originate_aleg_uuid|variable_ent_originate_aleg_uuid|kz_originate_aleg_uuid|variable_kz_originate_aleg_uuid" />
+    <field name="Other-Leg" type="static" serialize-as="object">
+	    <fields>
+			<field name="Direction" />
+			<field name="Caller-ID-Name" />
+			<field name="Caller-ID-Number" />
+			<field name="Destination-Number" />
+			<field name="Call-ID" type="first-of"
+				value="Other-Leg-Unique-ID|Other-Leg-Call-ID|variable_origination_uuid|ent_originate_aleg_uuid|variable_ent_originate_aleg_uuid|kz_originate_aleg_uuid|variable_kz_originate_aleg_uuid" />
+	    </fields>
+	</field>
+</definition>

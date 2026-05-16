@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "callflows.doorman",
+    "description": "Validator for the doorman callflow data object",
+    "properties": {
+        "call_timeout": {
+            "default": 30,
+            "description": "How long to ring the callee",
+            "type": "integer"
+        },
+        "caller_greeting": {
+            "default": "Hi. Please state your name after the tone.",
+            "description": "Greeting played to caller to inform her/him about name/purpose recording",
+            "type": "string"
+        },
+        "caller_id_name": {
+            "default": "Doorman",
+            "description": "Custom Caller ID Name to denote the doorman is calling",
+            "type": "string"
+        },
+        "failover_strategy": {
+            "default": "hangup",
+            "description": "The failover strategy to use if the callee does not answer or hangs up without choosing an option",
+            "enum": [
+                "hangup",
+                "voicemail"
+            ],
+            "type": "string"
+        },
+        "id": {
+            "description": "The KAZOO device or user ID",
+            "type": "string"
+        },
+        "max_menu_attempts": {
+            "default": 3,
+            "description": "The max number of doorman menu repetitions in case of callee's wrong choice",
+            "type": "integer"
+        },
+        "origin": {
+            "default": "callflow : cf_doorman",
+            "description": "Read-only setting if the call is recorded",
+            "type": "string"
+        },
+        "recording_limit": {
+            "default": 3,
+            "description": "The caller's recording limit for name and reason for calling",
+            "type": "integer"
+        },
+        "skip_module": {
+            "description": "When set to true this callflow action is skipped, advancing to the wildcard branch (if any)",
+            "type": "boolean"
+        },
+        "tones": {
+            "description": "Ring tone to play to the caller after recording their name",
+            "items": {
+                "$ref": "tone",
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "vmbox_id": {
+            "description": "Voicemail box ID to send caller to if callee choses",
+            "type": "string"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "external_numbers",
+    "description": "Schema for an external number",
+    "properties": {
+        "name": {
+            "description": "A friendly name for the external number",
+            "maxLength": 128,
+            "minLength": 1,
+            "support_level": "supported",
+            "type": "string"
+        },
+        "number": {
+            "description": "The external number",
+            "maxLength": 30,
+            "minLength": 1,
+            "support_level": "supported",
+            "type": "string"
+        }
+    },
+    "required": [
+        "number"
+    ],
+    "type": "object"
+}

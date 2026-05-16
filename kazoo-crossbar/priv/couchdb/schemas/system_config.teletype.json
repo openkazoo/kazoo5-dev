@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.teletype",
+    "description": "Schema for teletype system_config",
+    "properties": {
+        "autoload_modules": {
+            "default": [
+                "teletype_account_zone_change",
+                "teletype_bill_reminder",
+                "teletype_cf_notification",
+                "teletype_cnam_request",
+                "teletype_customer_update",
+                "teletype_denied_emergency_bridge",
+                "teletype_deregister",
+                "teletype_desktop_app_welcome",
+                "teletype_desktop_webphone_enabled",
+                "teletype_emergency_bridge",
+                "teletype_fax_inbound_error_to_email",
+                "teletype_fax_inbound_error_to_email_filtered",
+                "teletype_fax_inbound_to_email",
+                "teletype_fax_outbound_error_to_email",
+                "teletype_fax_outbound_smtp_error_to_email",
+                "teletype_fax_outbound_to_email",
+                "teletype_first_occurrence",
+                "teletype_low_balance",
+                "teletype_missed_call",
+                "teletype_new_account",
+                "teletype_new_user",
+                "teletype_number_feature_manual_action",
+                "teletype_password_recovery",
+                "teletype_port_cancel",
+                "teletype_port_comment",
+                "teletype_ported",
+                "teletype_port_pending",
+                "teletype_port_rejected",
+                "teletype_port_request_admin",
+                "teletype_port_request",
+                "teletype_port_scheduled",
+                "teletype_port_unconfirmed",
+                "teletype_service_added",
+                "teletype_system_alert",
+                "teletype_topup",
+                "teletype_transaction",
+                "teletype_transaction_failed",
+                "teletype_voicemail_deleted",
+                "teletype_voicemail_full",
+                "teletype_voicemail_to_email",
+                "teletype_webhook_disabled"
+            ],
+            "description": "teletype autoload_modules",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "backoff_fudge_ms": {
+            "default": 5000,
+            "description": "teletype backoff_fudge_ms",
+            "type": "integer"
+        },
+        "iterate_over_bcc": {
+            "default": true,
+            "description": "teletype iterate over bcc",
+            "type": "boolean"
+        },
+        "notice_enabled_by_default": {
+            "default": true,
+            "description": "Specify if template is considered enabled by default when teletype tries to process that notification",
+            "type": "boolean"
+        },
+        "render_farm_workers": {
+            "default": 50,
+            "description": "teletype render farm workers",
+            "type": "integer"
+        },
+        "use_federated_listener": {
+            "default": false,
+            "description": "teletype use_federated_listener",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

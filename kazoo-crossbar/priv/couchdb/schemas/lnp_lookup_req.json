@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "lnp_lookup_req",
+    "description": "Schema for a lnp lookup request",
+    "properties": {
+        "numbers": {
+            "description": "The numbers to LNP lookup",
+            "items": {
+                "pattern": "\\+?[0-9]+",
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "numbers"
+    ],
+    "type": "object"
+}

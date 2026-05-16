@@ -1,0 +1,74 @@
+{
+    "_id": "_design/trunkstore",
+    "kazoo": {
+        "view_map": [
+            {
+                "classification": "account"
+            }
+        ]
+    },
+    "language": "javascript",
+    "views": {
+        "crossbar_listing": {
+            "map": [
+                "function(doc) {",
+                "  if (doc.pvt_type != 'sys_info' || doc.pvt_deleted) return;",
+                "  emit(doc._id, {",
+                "    'name': doc.name,",
+                "    'servers': doc.servers",
+                "  });",
+                "}"
+            ],
+            "reduce": "_count"
+        },
+        "lookup_did": {
+            "map": [
+                "function(doc) {",
+                "  if (doc.pvt_type != 'sys_info' || doc.pvt_deleted) return;",
+                "  var realm = doc.account.auth_realm;",
+                "  (doc.servers || []).forEach(function(server) {",
+                "    var auth_clone = JSON.parse(JSON.stringify(server.auth));",
+                "    auth_clone.auth_realm = realm;",
+                "    if (server.options && server.options.enabled && server.DIDs) {",
+                "      for (var DID in server.DIDs) {",
+                "        emit(DID, {",
+                "          'callerid_server': server.callerid || '',",
+                "          'callerid_account': doc.callerid || '',",
+                "          'e911_callerid_server': server.e911_callerid || '',",
+                "          'e911_callerid_account': doc.e911_callerid || '',",
+                "          'auth': auth_clone,",
+                "          'DID_Opts': server.DIDs[DID],",
+                "          'inbound_format': server.inbound_format || 'npan',",
+                "          'server': server.options,",
+                "          'account': doc.account",
+                "        });",
+                "      }",
+                "    }",
+                "  });",
+                "}"
+            ]
+        },
+        "lookup_user_flags": {
+            "map": [
+                "function(doc) {",
+                "  if (doc.pvt_type != 'sys_info') return;",
+                "  var realm = doc.account.auth_realm;",
+                "  if (doc.call_restriction) {",
+                "    var call_restriction = JSON.parse(JSON.stringify(doc.call_restriction))",
+                "  };",
+                "  (doc.servers || []).forEach(function(server) {",
+                "    if (server.auth && server.auth.auth_user) {",
+                "      var srv_clone = JSON.parse(JSON.stringify(server));",
+                "      srv_clone.auth.auth_realm = realm;",
+                "      emit([realm.toLowerCase(), srv_clone.auth.auth_user.toLowerCase()], {",
+                "        'server': srv_clone,",
+                "        'account': doc.account || {},",
+                "        'call_restriction': call_restriction",
+                "      });",
+                "    }",
+                "  });",
+                "}"
+            ]
+        }
+    }
+}

@@ -1,0 +1,88 @@
+paths:
+  /accounts/{ACCOUNT_ID}/websites:
+    get:
+      operationId: GetAccountsAccountIdWebsites
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all websites
+      tags:
+        - websites
+    put:
+      operationId: PutAccountsAccountIdWebsites
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/websites'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of websites
+      tags:
+        - websites
+  /accounts/{ACCOUNT_ID}/websites/{WEBSITE_ID}:
+    delete:
+      operationId: DeleteAccountsAccountIdWebsitesWebsiteId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/WEBSITE_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of websites
+      tags:
+        - websites
+    get:
+      operationId: GetAccountsAccountIdWebsitesWebsiteId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/WEBSITE_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a websites by ID
+      tags:
+        - websites
+    patch:
+      operationId: PatchAccountsAccountIdWebsitesWebsiteId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/WEBSITE_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/websites'
+      responses:
+        200:
+          description: Successful operation
+      summary: Patch specific fields of websites
+      tags:
+        - websites
+    post:
+      operationId: PostAccountsAccountIdWebsitesWebsiteId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/WEBSITE_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/websites'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of websites
+      tags:
+        - websites

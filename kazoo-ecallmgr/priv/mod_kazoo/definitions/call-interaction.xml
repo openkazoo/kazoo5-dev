@@ -1,0 +1,10 @@
+<definition name="call-interaction">
+    <field name="Call-Interaction" type="static" serialize-as="object">
+    <fields>
+        <field name="Call-Interaction-ID" as="Id" />
+        <field name="Call-Interaction-Key" as="Key" />
+        <field name="Call-Interaction-Timestamp" as="Timestamp" serialize-as="number"/>
+        <field name="Call-Interaction-Is-Root" as="Is-Root" serialize-as="boolean"/>
+   </fields>
+</field>
+</definition>

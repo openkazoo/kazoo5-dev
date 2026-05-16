@@ -1,0 +1,71 @@
+paths:
+  /accounts/{ACCOUNT_ID}/scope_restrictions:
+    get:
+      operationId: GetAccountsAccountIdScopeRestrictions
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all scope_restrictions
+      tags:
+        - scope_restrictions
+    put:
+      operationId: PutAccountsAccountIdScopeRestrictions
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/scope_restrictions'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of scope_restrictions
+      tags:
+        - scope_restrictions
+  /accounts/{ACCOUNT_ID}/scope_restrictions/{SCOPE_RESTRICTION}:
+    delete:
+      operationId: DeleteAccountsAccountIdScopeRestrictionsScopeRestriction
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/SCOPE_RESTRICTION'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of scope_restrictions
+      tags:
+        - scope_restrictions
+    get:
+      operationId: GetAccountsAccountIdScopeRestrictionsScopeRestriction
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/SCOPE_RESTRICTION'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a scope_restrictions by ID
+      tags:
+        - scope_restrictions
+    post:
+      operationId: PostAccountsAccountIdScopeRestrictionsScopeRestriction
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/SCOPE_RESTRICTION'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/scope_restrictions'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of scope_restrictions
+      tags:
+        - scope_restrictions

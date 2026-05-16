@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "match_lists",
+    "description": "Match lists - define a set of rules for matching against call properties, callflows, etc",
+    "properties": {
+        "name": {
+            "description": "Friendly name for the match list",
+            "type": "string"
+        },
+        "owner_id": {
+            "description": "KAZOO User ID of the owner of this match list",
+            "type": "string"
+        },
+        "rules": {
+            "description": "Evaluated rules to determine if the match list has matched",
+            "items": {
+                "$ref": "match_lists.rule",
+                "type": "object"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "rules"
+    ],
+    "type": "object"
+}

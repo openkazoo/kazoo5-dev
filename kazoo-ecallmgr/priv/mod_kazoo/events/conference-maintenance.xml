@@ -1,0 +1,5 @@
+<event name="conference::maintenance">
+	<fields>
+		<field name="conference-event" type="reference" />
+	</fields>
+</event>

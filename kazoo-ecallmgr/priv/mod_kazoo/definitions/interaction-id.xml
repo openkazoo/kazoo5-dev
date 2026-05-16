@@ -1,0 +1,7 @@
+<definition name="interaction-id">
+	<filters>
+		<filter name="Call-Interaction-ID" type="include" compare="exists"/>
+	</filters>
+	<field name="Call-Interaction-ID" />
+	<field name="Call-Interaction-Is-Root" serialize-as="boolean"/>
+</definition>

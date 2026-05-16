@@ -1,0 +1,445 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "devices",
+    "description": "A device be it a SIP phone or landline number",
+    "properties": {
+        "addresses": {
+            "$ref": "addresses",
+            "description": "Device addresses",
+            "type": "object"
+        },
+        "call_failover": {
+            "$ref": "call_failover"
+        },
+        "call_forward": {
+            "$ref": "call_forward",
+            "description": "Call forward settings",
+            "kz:skip_subproperty_builder": true
+        },
+        "call_limits": {
+            "$ref": "call_limits"
+        },
+        "call_recording": {
+            "$ref": "call_recording"
+        },
+        "call_restriction": {
+            "additionalProperties": {
+                "properties": {
+                    "action": {
+                        "description": "If set to deny all calls of this type will be rejected.  If set to inherit the user/device rules apply",
+                        "enum": [
+                            "inherit",
+                            "deny"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "default": {},
+            "description": "Device level call restrictions for each available number classification",
+            "type": "object"
+        },
+        "call_waiting": {
+            "$ref": "call_waiting"
+        },
+        "caller_id": {
+            "$ref": "caller_id",
+            "description": "The device caller ID parameters"
+        },
+        "caller_id_options": {
+            "$ref": "caller_id_options",
+            "description": "custom properties for configuring caller_id"
+        },
+        "contact_list": {
+            "default": {},
+            "description": "Contact List Parameters",
+            "properties": {
+                "exclude": {
+                    "description": "If set to true the device is excluded from the contact list",
+                    "support_level": "supported",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "device_type": {
+            "description": "Arbitrary device type used by the UI and billing system",
+            "type": "string"
+        },
+        "dial_plan": {
+            "$ref": "dialplans",
+            "description": "A list of rules used to modify dialed numbers"
+        },
+        "do_not_disturb": {
+            "description": "DND Parameters",
+            "properties": {
+                "enabled": {
+                    "description": "Is do-not-disturb enabled for this device?",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "enabled": {
+            "default": true,
+            "description": "Determines if the device is currently enabled",
+            "support_level": "supported",
+            "type": "boolean"
+        },
+        "exclude_from_queues": {
+            "default": false,
+            "description": "Do not ring this device when calling user/agent in queue",
+            "type": "boolean"
+        },
+        "flags": {
+            "description": "Flags set by external applications",
+            "items": {
+                "type": "string"
+            },
+            "support_level": "supported",
+            "type": "array"
+        },
+        "formatters": {
+            "$ref": "formatters"
+        },
+        "hotdesk": {
+            "description": "The hotdesk status of this device",
+            "properties": {
+                "users": {
+                    "description": "The user(s) currently hotdesked into the device",
+                    "patternProperties": {
+                        "^[a-zA-Z0-9]{32}$": {
+                            "description": "user-specific hotdesk settings",
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "language": {
+            "description": "The language for the device",
+            "support_level": "supported",
+            "type": "string"
+        },
+        "mac_address": {
+            "description": "The MAC Address of the device (if applicable)",
+            "support_level": "supported",
+            "type": "string"
+        },
+        "media": {
+            "$ref": "endpoint.media",
+            "description": "Configure audio/video/etc media options for this device"
+        },
+        "metaflows": {
+            "$ref": "metaflows",
+            "description": "The device metaflow parameters"
+        },
+        "mobile": {
+            "description": "KAZOO devices that integrate with mobile providers",
+            "properties": {
+                "mdn": {
+                    "description": "The MDN - mobile device number",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "music_on_hold": {
+            "default": {},
+            "description": "The music on hold parameters used if not a property of the device owner",
+            "properties": {
+                "media_id": {
+                    "description": "The ID of a media object that should be used as the music on hold",
+                    "maxLength": 2048,
+                    "type": "string"
+                },
+                "options": {
+                    "description": "Options for playing music on hold",
+                    "items": {
+                        "enum": [
+                            "preserve-position",
+                            "random-start"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "mwi_unsolicited_updates": {
+            "default": true,
+            "description": "When true enables unsolicited mwi notifications",
+            "type": "boolean"
+        },
+        "name": {
+            "description": "A friendly name for the device",
+            "maxLength": 128,
+            "minLength": 1,
+            "support_level": "supported",
+            "type": "string"
+        },
+        "outbound_flags": {
+            "description": "List of flags (features) this device requires when making outbound calls",
+            "oneOf": [
+                {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                {
+                    "properties": {
+                        "dynamic": {
+                            "description": "Dynamic outbound flags",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "static": {
+                            "description": "Static outbound flags",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            ]
+        },
+        "owner_id": {
+            "description": "The ID of the user object that 'owns' the device",
+            "maxLength": 32,
+            "minLength": 32,
+            "type": "string"
+        },
+        "presence_id": {
+            "description": "Static presence ID (used instead of SIP username)",
+            "support_level": "supported",
+            "type": "string"
+        },
+        "provision": {
+            "description": "Provision data",
+            "properties": {
+                "check_sync_event": {
+                    "description": "Value to use in Event header for device reload/reboot",
+                    "type": "string"
+                },
+                "check_sync_reboot": {
+                    "default": "reboot=true",
+                    "description": "Value to append to 'check-sync' event if phone should reboot after reloading settings",
+                    "type": "string"
+                },
+                "check_sync_reload": {
+                    "default": "reboot=false",
+                    "description": "Value to append to 'check-sync' event if phone should not reboot after reloading settings",
+                    "type": "string"
+                },
+                "combo_keys": {
+                    "patternProperties": {
+                        "^[0-9]+$": {
+                            "$ref": "devices.combo_key"
+                        }
+                    },
+                    "type": "object"
+                },
+                "endpoint_brand": {
+                    "description": "Brand of the phone",
+                    "type": "string"
+                },
+                "endpoint_family": {
+                    "description": "Family name of the phone",
+                    "type": "string"
+                },
+                "endpoint_model": {
+                    "description": "Model name of the phone",
+                    "oneOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "integer"
+                        }
+                    ]
+                },
+                "feature_keys": {
+                    "patternProperties": {
+                        "^[0-9]+$": {
+                            "$ref": "devices.combo_key"
+                        }
+                    },
+                    "type": "object"
+                },
+                "id": {
+                    "description": "Provisioner Template ID",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "register_overwrite_notify": {
+            "default": false,
+            "description": "When true enables overwrite notifications",
+            "type": "boolean"
+        },
+        "ringtones": {
+            "default": {},
+            "description": "Ringtone Parameters",
+            "properties": {
+                "external": {
+                    "description": "The alert info SIP header added when the call is from internal sources",
+                    "maxLength": 256,
+                    "type": "string"
+                },
+                "internal": {
+                    "description": "The alert info SIP header added when the call is from external sources",
+                    "maxLength": 256,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "sip": {
+            "default": {},
+            "description": "SIP Parameters",
+            "properties": {
+                "custom_sip_headers": {
+                    "anyOf": [
+                        {
+                            "$ref": "custom_sip_headers"
+                        },
+                        {
+                            "properties": {
+                                "in": {
+                                    "$ref": "custom_sip_headers",
+                                    "description": "Custom SIP Headers to be applied to calls inbound to Kazoo from the endpoint"
+                                },
+                                "out": {
+                                    "$ref": "custom_sip_headers",
+                                    "description": "Custom SIP Headers to be applied to calls outbound from Kazoo to the endpoint"
+                                }
+                            }
+                        }
+                    ],
+                    "description": "A property list of SIP headers",
+                    "type": "object"
+                },
+                "custom_sip_interface": {
+                    "description": "If the bridge string should target a different SIP interface",
+                    "type": "string"
+                },
+                "expire_seconds": {
+                    "default": 300,
+                    "description": "The time, in seconds, sent to the provisioner for the registration period that the device should be configured with.",
+                    "support_level": "supported",
+                    "type": "integer"
+                },
+                "forward": {
+                    "description": "Forward IP to use",
+                    "type": "string"
+                },
+                "ignore_completed_elsewhere": {
+                    "description": "When set to false the phone should not consider ring group calls answered elsewhere as missed",
+                    "type": "boolean"
+                },
+                "invite_format": {
+                    "default": "contact",
+                    "description": "The SIP request URI invite format",
+                    "enum": [
+                        "username",
+                        "npan",
+                        "1npan",
+                        "e164",
+                        "route",
+                        "strip_plus",
+                        "contact"
+                    ],
+                    "support_level": "supported",
+                    "type": "string"
+                },
+                "ip": {
+                    "description": "IP address for this device",
+                    "support_level": "supported",
+                    "type": "string"
+                },
+                "method": {
+                    "default": "password",
+                    "description": "Method of authentication",
+                    "enum": [
+                        "password",
+                        "ip",
+                        "authorization"
+                    ],
+                    "support_level": "supported",
+                    "type": "string"
+                },
+                "number": {
+                    "description": "The number used if the invite format is 1npan, npan, or e164 (if not set the dialed number is used)",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "SIP authentication password",
+                    "maxLength": 32,
+                    "minLength": 5,
+                    "support_level": "supported",
+                    "type": "string"
+                },
+                "proxy": {
+                    "description": "Proxy IP address to use",
+                    "type": "string"
+                },
+                "realm": {
+                    "description": "The realm this device should use, overriding the account realm. Should rarely be necessary.",
+                    "maxLength": 253,
+                    "minLength": 4,
+                    "pattern": "^[.\\w_-]+$",
+                    "type": "string"
+                },
+                "route": {
+                    "description": "The SIP URL used if the invite format is 'route'",
+                    "support_level": "supported",
+                    "type": "string"
+                },
+                "static_invite": {
+                    "description": "SIP To user",
+                    "type": "string"
+                },
+                "static_route": {
+                    "description": "Sends all inbound calls to this string (instead of dialed number or username)",
+                    "type": "string"
+                },
+                "transport": {
+                    "description": "SIP Transport to use",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "SIP authentication username",
+                    "maxLength": 32,
+                    "minLength": 2,
+                    "support_level": "supported",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "suppress_unregister_notifications": {
+            "default": false,
+            "description": "When true disables deregister notifications",
+            "type": "boolean"
+        },
+        "timezone": {
+            "$ref": "timezone",
+            "description": "Device's timezone",
+            "support_level": "supported"
+        }
+    },
+    "required": [
+        "name"
+    ],
+    "type": "object"
+}

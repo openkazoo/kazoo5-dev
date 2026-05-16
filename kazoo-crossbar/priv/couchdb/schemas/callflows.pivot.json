@@ -1,0 +1,117 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "callflows.pivot",
+    "description": "Validator for the Pivot callflow element",
+    "oneOf": [
+        {
+            "required": [
+                "serverless"
+            ]
+        },
+        {
+            "required": [
+                "voice_url"
+            ]
+        }
+    ],
+    "properties": {
+        "cdr_url": {
+            "description": "Optional URL to send the CDR to at the end of the call",
+            "minLength": 7,
+            "pattern": "^https?://",
+            "type": "string"
+        },
+        "custom_request_headers": {
+            "description": "Custom HTTP X- headers to be included on each Pivot request to the voice_url",
+            "patternProperties": {
+                "^[x|X]-": {
+                    "description": "Include a custom X- header",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "debug": {
+            "default": false,
+            "description": "Store debug logs related to processing this Pivot call",
+            "type": "boolean"
+        },
+        "method": {
+            "default": "get",
+            "description": "What HTTP verb to send the request(s) with",
+            "enum": [
+                "get",
+                "post",
+                "GET",
+                "POST"
+            ],
+            "type": "string"
+        },
+        "req_body_format": {
+            "default": "form",
+            "description": "What format should the request body have when using POST",
+            "enum": [
+                "form",
+                "json"
+            ],
+            "type": "string"
+        },
+        "req_format": {
+            "default": "kazoo",
+            "description": "What format of Pivot will the your server respond with",
+            "enum": [
+                "kazoo",
+                "twiml"
+            ],
+            "type": "string"
+        },
+        "req_timeout_ms": {
+            "description": "How long, in milliseconds, to wait for a Pivot response from the HTTP server",
+            "maximum": 5000,
+            "type": "integer"
+        },
+        "serverless": {
+            "description": "Use provided Pivot flow without requiring an external server to execute",
+            "properties": {
+                "flow_doc": {
+                    "description": "Execute this serverless Pivot flow without making a request to a server. It can be either a valid PivotML or valid Callflow object",
+                    "oneOf": [
+                        {
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        {
+                            "type": "object"
+                        }
+                    ]
+                },
+                "flow_type": {
+                    "description": "Specifies the type of Pivot flow",
+                    "enum": [
+                        "application/json",
+                        "application/xml",
+                        "text/xml"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "flow_doc",
+                "flow_type"
+            ],
+            "type": "object"
+        },
+        "skip_module": {
+            "description": "When set to true this callflow action is skipped, advancing to the wildcard branch (if any)",
+            "type": "boolean"
+        },
+        "voice_url": {
+            "description": "What URL to request the initial Pivot callflow",
+            "kazoo-validation": true,
+            "minLength": 7,
+            "pattern": "^https?://",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

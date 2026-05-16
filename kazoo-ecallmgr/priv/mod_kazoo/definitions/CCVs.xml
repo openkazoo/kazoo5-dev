@@ -1,0 +1,7 @@
+<definition name="CCVs">
+	<field name="Custom-Channel-Vars" type="static" serialize-as="object">
+		<fields>
+			<field name="ccvs" type="prefixes" exclude-prefix="true" value="X-ecallmgr_|variable_sip_h_X-ecallmgr_|variable_ecallmgr_|ecallmgr_"/>
+		</fields>
+	</field>
+</definition>

@@ -1,0 +1,86 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "endpoint.media",
+    "description": "Schema for endpoint media options",
+    "properties": {
+        "audio": {
+            "default": {},
+            "description": "The audio media parameters",
+            "properties": {
+                "codecs": {
+                    "$ref": "codecs.audio",
+                    "description": "A list of audio codecs the endpoint supports"
+                }
+            },
+            "type": "object"
+        },
+        "bypass_media": {
+            "description": "Default bypass media mode (The string type is deprecated, please use this as a boolean)",
+            "oneOf": [
+                {
+                    "type": "boolean"
+                },
+                {
+                    "enum": [
+                        "auto",
+                        "false",
+                        "true"
+                    ],
+                    "type": "string"
+                }
+            ]
+        },
+        "encryption": {
+            "default": {},
+            "description": "Encryption Parameters",
+            "properties": {
+                "enforce_security": {
+                    "default": false,
+                    "description": "Is Encryption Enabled?",
+                    "type": "boolean"
+                },
+                "methods": {
+                    "default": [],
+                    "description": "Supported Encryption Types",
+                    "items": {
+                        "enum": [
+                            "zrtp",
+                            "srtp"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "fax_option": {
+            "description": "Is T.38 Supported?",
+            "type": "boolean"
+        },
+        "ignore_early_media": {
+            "description": "The option to determine if early media from the endpoint should always be ignored",
+            "type": "boolean"
+        },
+        "progress_timeout": {
+            "description": "The progress timeout to apply to the endpoint (seconds)",
+            "type": "integer"
+        },
+        "video": {
+            "default": {},
+            "description": "The video media parameters",
+            "properties": {
+                "codecs": {
+                    "$ref": "codecs.video",
+                    "description": "A list of video codecs the endpoint supports"
+                }
+            },
+            "type": "object"
+        },
+        "webrtc": {
+            "description": "If true, forces a WebRTC compatible SDP on the INVITE",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

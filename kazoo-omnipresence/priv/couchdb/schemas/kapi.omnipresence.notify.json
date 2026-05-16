@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "kapi.omnipresence.notify",
+    "description": "AMQP API for omnipresence.notify",
+    "properties": {
+        "Body": {
+            "type": "string"
+        },
+        "Call-ID": {
+            "type": "string"
+        },
+        "Event-Category": {
+            "enum": [
+                "presence"
+            ]
+        },
+        "Event-Name": {
+            "enum": [
+                "notify"
+            ]
+        },
+        "Event-Package": {
+            "type": "string"
+        },
+        "From": {
+            "type": "string"
+        },
+        "From-Tag": {
+            "type": "string"
+        },
+        "To": {
+            "type": "string"
+        },
+        "To-Tag": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "From",
+        "To"
+    ],
+    "type": "object"
+}

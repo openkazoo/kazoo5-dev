@@ -1,0 +1,102 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "storage.plan.database",
+    "additionalProperties": false,
+    "description": "schema for database storage plan",
+    "properties": {
+        "attachments": {
+            "$ref": "storage.plan.database.attachment",
+            "description": "Describes what attachment types to store using this plan"
+        },
+        "connection": {
+            "description": "Which connection UUID to use when storing to this database type",
+            "kazoo-validation": true,
+            "type": "string"
+        },
+        "database": {
+            "properties": {
+                "create_options": {
+                    "type": "object"
+                },
+                "names": {
+                    "description": "List of database names to match (non-matching names won't use this plan)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "range": {
+            "patternProperties": {
+                "[0-9]{6}-[0-9]{6}": {
+                    "properties": {
+                        "attachments": {
+                            "$ref": "storage.plan.database.attachment"
+                        },
+                        "connection": {
+                            "description": "Connection UUID to use",
+                            "kazoo-validation": true,
+                            "type": "string"
+                        },
+                        "secondary_connections": {
+                            "description": "Additional connection UUIDs to use asynchronously",
+                            "items": {
+                                "description": "Connection UUID to use",
+                                "kazoo-validation": true,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        },
+        "regex": {
+            "patternProperties": {
+                ".+": {
+                    "properties": {
+                        "attachments": {
+                            "$ref": "storage.plan.database.attachment"
+                        },
+                        "connection": {
+                            "kazoo-validation": true,
+                            "type": "string"
+                        },
+                        "secondary_connections": {
+                            "description": "Save changes to additional connections asynchronously",
+                            "items": {
+                                "description": "Connection UUID to use",
+                                "kazoo-validation": true,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        },
+        "secondary_connections": {
+            "description": "Save changes to additional connections asynchronously",
+            "items": {
+                "description": "Connection UUID to use",
+                "kazoo-validation": true,
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "types": {
+            "description": "The document types to store with this plan",
+            "patternProperties": {
+                "[a-z_]+": {
+                    "$ref": "storage.plan.database.document"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

@@ -1,0 +1,11 @@
+{application,pusher,
+             [{applications,[apns,fcm,kazoo_amqp,kazoo_apps,kazoo_data,
+                             kazoo_documents,kazoo_endpoint,kazoo_sip,
+                             kazoo_stdlib,kazoo_web,kernel,lager,public_key,
+                             stdlib]},
+              {description,"Pusher: wake the dead"},
+              {env,[{is_kazoo_app,true},{schemas_to_priv,true}]},
+              {mod,{pusher_app,[]}},
+              {modules,[]},
+              {registered,[pm_apple,pm_firebase,pusher_sup,pusher_module_sup]},
+              {vsn,"4.0.0"}]}.

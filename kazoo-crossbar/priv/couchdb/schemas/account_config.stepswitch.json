@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "account_config.stepswitch",
+    "description": "Schema for stepswitch account_config",
+    "properties": {
+        "default_fail_on_single_reject": {
+            "default": [
+                "USER_BUSY",
+                "CALL_REJECTED",
+                "NO_ANSWER"
+            ],
+            "description": "stepswitch default_fail_on_single_reject",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}

@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "websites",
+    "description": "Websites represent the website urls that can be added to a account and it's child accounts",
+    "properties": {
+        "account_wide": {
+            "default": true,
+            "description": "Whether an website is visible to all accounts in the parent account",
+            "type": "boolean"
+        },
+        "name": {
+            "description": "A name for the website to be displayed",
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+        },
+        "open_in_browser": {
+            "default": false,
+            "description": "Whether a website should be opened in browser",
+            "type": "boolean"
+        },
+        "users": {
+            "default": [],
+            "description": "A list users who are assigned the website",
+            "items": {
+                "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+        },
+        "web_url": {
+            "description": "Application api url",
+            "format": "uri",
+            "minLength": 7,
+            "type": "string"
+        }
+    },
+    "required": [
+        "name",
+        "web_url"
+    ],
+    "type": "object"
+}

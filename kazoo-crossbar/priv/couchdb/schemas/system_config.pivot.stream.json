@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.pivot.stream",
+    "description": "Schema for pivot.stream system_config",
+    "properties": {
+        "media_proxy_password": {
+            "description": "pivot stream media_proxy_password",
+            "type": "string"
+        },
+        "media_proxy_username": {
+            "description": "pivot stream media_proxy_username",
+            "type": "string"
+        },
+        "proxy_listeners": {
+            "default": 25,
+            "description": "pivot stream proxy_listeners",
+            "type": "integer"
+        },
+        "proxy_port": {
+            "default": 34512,
+            "description": "pivot stream proxy_port",
+            "type": "integer"
+        },
+        "proxy_ssl_port": {
+            "default": 34513,
+            "description": "pivot stream proxy_ssl_port",
+            "type": "integer"
+        },
+        "send_timeout_ms": {
+            "default": 5000,
+            "description": "pivot stream send_timeout_ms",
+            "type": "integer"
+        },
+        "should_authenticated_media_proxy": {
+            "default": false,
+            "description": "pivot stream should_authenticated_media_proxy",
+            "type": "boolean"
+        },
+        "ssl_cert": {
+            "description": "pivot stream ssl_cert",
+            "type": "string"
+        },
+        "ssl_key": {
+            "description": "pivot stream ssl_key",
+            "type": "string"
+        },
+        "ssl_password": {
+            "default": "",
+            "description": "pivot stream ssl_password",
+            "type": "string"
+        },
+        "use_plaintext": {
+            "default": true,
+            "description": "pivot stream use_plaintext",
+            "type": "boolean"
+        },
+        "use_ssl": {
+            "default": false,
+            "description": "pivot stream use_ssl",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

@@ -1,0 +1,20 @@
+<configuration name="sofia.conf" description="sofia Endpoint">
+    <global_settings>
+        <param name="log-level" value="info"/>
+        <param name="tracelevel" value="debug"/>
+        <param name="debug-presence" value="0"/>
+        <param name="debug-sla" value="0"/>
+        <param name="auto-restart" value="false"/>
+        <param name="msg-threads-on-startup" value="1"/>
+        <!--<param name="rewrite-multicasted-fs-path" value="to_host"/>-->
+
+        <param name="presence-disable-presence-in-event-binding" value="true"/>
+        <param name="presence-disable-all-event-bindings" value="true"/>
+        <!--<param name="disable-url-encoding" value="false"/>-->
+
+    </global_settings>
+
+    <profiles>
+        <X-PRE-PROCESS cmd="include" data="../sip_profiles/*.xml"/>
+    </profiles>
+</configuration>

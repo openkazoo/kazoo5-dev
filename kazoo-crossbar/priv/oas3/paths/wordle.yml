@@ -1,0 +1,38 @@
+paths:
+  /accounts/{ACCOUNT_ID}/wordle:
+    get:
+      operationId: GetAccountsAccountIdWordle
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all wordle
+      tags:
+        - wordle
+  /accounts/{ACCOUNT_ID}/wordle/{WORD_ID}:
+    get:
+      operationId: GetAccountsAccountIdWordleWordId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/WORD_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a wordle by ID
+      tags:
+        - wordle
+    post:
+      operationId: PostAccountsAccountIdWordleWordId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/WORD_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of wordle
+      tags:
+        - wordle

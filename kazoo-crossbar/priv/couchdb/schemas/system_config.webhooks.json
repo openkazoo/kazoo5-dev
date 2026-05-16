@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.webhooks",
+    "description": "Schema for webhooks system_config",
+    "properties": {
+        "attempt_failure_count": {
+            "default": 6,
+            "description": "webhooks attempt failure count",
+            "type": "integer"
+        },
+        "attempt_failure_expiry_ms": {
+            "default": 60000,
+            "description": "webhooks attempt failure expiry in milliseconds",
+            "type": "integer"
+        },
+        "channel_events": {
+            "default": {
+                "CHANNEL_ANSWER": "This webhook is triggered when a channel establishes two-way audio, such as a voicemail box or the called party answering",
+                "CHANNEL_BRIDGE": "This webhook is triggered when two channels are bridged together, such as two users/devices connected together",
+                "CHANNEL_CREATE": "This webhook is triggered when a new channel is created",
+                "CHANNEL_DESTROY": "This webhook is triggered when a channel is destroyed, usually as a result of a hangup",
+                "CHANNEL_HOLD": "This webhook is triggered when an established call gets put on hold",
+                "CHANNEL_UNHOLD": "This webhook is triggered when an established call gets taken off hold"
+            },
+            "description": "webhooks channel_events",
+            "type": "object"
+        },
+        "connect_timeout_ms": {
+            "default": 10000,
+            "description": "webhooks connect timeout in milliseconds",
+            "type": "integer"
+        },
+        "disable_disabler": {
+            "default": false,
+            "description": "if true webhooks will not be automatically disabled",
+            "type": "boolean"
+        },
+        "log_successful_attempts": {
+            "default": false,
+            "description": "webhooks log successful attempts",
+            "type": "boolean"
+        },
+        "mms_number_format_regex": {
+            "description": "mms regex format for isolating capture group and stripping +1",
+            "type": "string"
+        },
+        "object_types": {
+            "description": "webhooks object types",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "sms_number_format_regex": {
+            "description": "sms regex format for isolating capture group and stripping +1",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

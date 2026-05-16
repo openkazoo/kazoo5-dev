@@ -1,0 +1,16 @@
+<profile name="languages">
+
+	<fields>
+		<field name="fetch-info" type="reference" />
+		<field name="Event-Category" type="static" value="languages" />
+		<field name="Event-Name" type="static" value="language_req" />
+		<field name="macro_name" />
+		<field name="lang" />
+	</fields>
+
+	<params>
+		<param name="fetch-timeout" value="3500000" />
+		<param name="fetch-section" value="languages" />
+	</params>
+
+</profile>

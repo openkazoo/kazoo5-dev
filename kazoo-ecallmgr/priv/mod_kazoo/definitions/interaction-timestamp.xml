@@ -1,0 +1,3 @@
+<definition name="interaction-timestamp">
+    <field name="Call-Interaction-Timestamp" as="Timestamp" serialize-as="number"/>
+</definition>

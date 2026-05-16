@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "account_config.call_command",
+    "description": "Schema for call_command account_config",
+    "properties": {
+        "offnet_hunt_account_id": {
+            "description": "When using local resources, use this account instead of the account making the call (useful for resellers)",
+            "type": "string"
+        },
+        "should_use_local_resources": {
+            "default": false,
+            "description": "Toggle whether to use the hunt_account_id's (or account's) resources vs the system resources",
+            "type": "boolean"
+        },
+        "unknown_cid_name": {
+            "default": "unknown",
+            "description": "the value to use when a caller ID name is required but unknown",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

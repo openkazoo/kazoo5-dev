@@ -1,0 +1,107 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "screenpops",
+    "properties": {
+        "custom_parameters": {
+            "items": {
+                "properties": {
+                    "custom_url": {
+                        "description": "Stores the dynamic link URL",
+                        "type": "string"
+                    },
+                    "link_text": {
+                        "description": "Stores the value of the custom text for the custom_url",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Contains the name that can be used to identify the caller",
+                        "type": "string"
+                    },
+                    "render_name_as_label": {
+                        "description": "Stores whether the name will be shown in the screenpop",
+                        "type": "boolean"
+                    },
+                    "request_method": {
+                        "description": "Stores the HTTP method of the external source parameters",
+                        "type": "string"
+                    },
+                    "token": {
+                        "description": "Represents a dynamic value that can will be replaced by either a system data or a custom source",
+                        "type": "string"
+                    },
+                    "type_custom_parameter": {
+                        "description": "Contains the type of information the screenpop will load (no additional data, System Data, Dynamic Link, External Data)",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "Stores the URL to fetch the external source parameters",
+                        "type": "string"
+                    },
+                    "url_parameters": {
+                        "description": "Contains all the url custom params defined to concat to the custom url",
+                        "items": {
+                            "properties": {
+                                "name": {
+                                    "description": "Contains the name for the url_parameters",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "description": "Contains the value for the url_parameters",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "permissions": {
+            "default": {},
+            "description": "Used when screenpops are allowed for userwise, this object contains which users are allowed and not allowed for a screenpop",
+            "properties": {
+                "all_users": {
+                    "default": true,
+                    "description": "Whether the screenpop allowed for all users in the account",
+                    "type": "boolean"
+                },
+                "allow": {
+                    "default": [],
+                    "description": "Specific list of users who are allowed the screenpop",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 50,
+                    "type": "array"
+                },
+                "deny": {
+                    "default": [],
+                    "description": "Specific list of users who are not allowed the screenpop",
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 50,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "post_call_extension_time": {
+            "description": "Contains the time the screenpop will remain active when the temporal type is selected.",
+            "type": "number"
+        },
+        "show_location_call_time": {
+            "default": false,
+            "description": "Flag field for location and local time of customer call",
+            "type": "boolean"
+        },
+        "type_screenpops": {
+            "default": "notification",
+            "description": "Type of screenpops",
+            "type": "string"
+        }
+    }
+}

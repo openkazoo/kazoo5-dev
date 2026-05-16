@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "codecs.audio",
+    "description": "A list of audio codecs the endpoint supports",
+    "items": {
+        "enum": [
+            "AMR",
+            "AMR-WB",
+            "CELT_32",
+            "CELT_48",
+            "CELT_64",
+            "CELT@32000h",
+            "CELT@48000h",
+            "CELT@64000h",
+            "G7221@32000h",
+            "G7221@16000h",
+            "G722",
+            "G722_16",
+            "G722_32",
+            "G729",
+            "GSM",
+            "OPUS",
+            "PCMA",
+            "PCMU",
+            "speex",
+            "speex@16000h",
+            "speex@32000h"
+        ],
+        "type": "string"
+    },
+    "type": "array",
+    "uniqueItems": true
+}

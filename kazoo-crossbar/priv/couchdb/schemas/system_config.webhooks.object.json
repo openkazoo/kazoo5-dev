@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.webhooks.object",
+    "description": "Schema for webhooks.object system_config",
+    "properties": {
+        "include_fields": {
+            "description": "Fields from the changed document to include in webhook payloads",
+            "patternProperties": {
+                ".+": {
+                    "default": [],
+                    "description": "Per-doc-type properties to include",
+                    "items": {
+                        "description": "JSON key(or path) from the changed document to include",
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "properties": {
+                "default": {
+                    "default": [
+                        "pvt_auth_account_id",
+                        "pvt_auth_user_id"
+                    ],
+                    "description": "webhooks object include_fields default",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.crossbar.conference_auth",
+    "description": "Schema for crossbar.conference_auth system_config",
+    "properties": {
+        "conference_public_domain": {
+            "description": "crossbar conference_auth conference_public_domain",
+            "type": "string"
+        },
+        "invite_link_allowed_scope": {
+            "default": "crossbar:conference_join",
+            "description": "crossbar conference_auth invite_link_allowed_scope",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

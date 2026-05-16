@@ -1,0 +1,88 @@
+paths:
+  /accounts/{ACCOUNT_ID}/screenpops:
+    get:
+      operationId: GetAccountsAccountIdScreenpops
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all screenpops
+      tags:
+        - screenpops
+    put:
+      operationId: PutAccountsAccountIdScreenpops
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/screenpops'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of screenpops
+      tags:
+        - screenpops
+  /accounts/{ACCOUNT_ID}/screenpops/{SCREENPOP_ID}:
+    delete:
+      operationId: DeleteAccountsAccountIdScreenpopsScreenpopId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/SCREENPOP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of screenpops
+      tags:
+        - screenpops
+    get:
+      operationId: GetAccountsAccountIdScreenpopsScreenpopId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/SCREENPOP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a screenpops by ID
+      tags:
+        - screenpops
+    patch:
+      operationId: PatchAccountsAccountIdScreenpopsScreenpopId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/SCREENPOP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/screenpops'
+      responses:
+        200:
+          description: Successful operation
+      summary: Patch specific fields of screenpops
+      tags:
+        - screenpops
+    post:
+      operationId: PostAccountsAccountIdScreenpopsScreenpopId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/SCREENPOP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/screenpops'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of screenpops
+      tags:
+        - screenpops

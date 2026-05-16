@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "application_entitlement",
+    "description": "List of entitlements related to query accounts for endpoint cb_applications",
+    "oneOf": [
+        {
+            "properties": {
+                "type": {
+                    "description": "Type of entitlement granted or users with the entitlement",
+                    "enum": [
+                        "all",
+                        "admins"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        {
+            "properties": {
+                "type": {
+                    "description": "Type of entitlement granted or users with the entitlement",
+                    "enum": [
+                        "specific"
+                    ],
+                    "type": "string"
+                },
+                "users": {
+                    "default": [],
+                    "description": "Specific User IDs granting access to the app",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        }
+    ],
+    "properties": {
+        "app_id": {
+            "description": "Id of the application that has been entitled",
+            "type": "string"
+        },
+        "app_type": {
+            "description": "Application type either monster-ui or commland or some other type of wrap",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

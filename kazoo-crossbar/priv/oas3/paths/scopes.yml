@@ -1,0 +1,61 @@
+paths:
+  /scopes:
+    get:
+      operationId: GetScopes
+      parameters: []
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all scopes
+      tags:
+        - scopes
+    put:
+      operationId: PutScopes
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/scopes'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of scopes
+      tags:
+        - scopes
+  /scopes/{SCOPE}:
+    delete:
+      operationId: DeleteScopesScope
+      parameters:
+        - $ref: '../oas3-parameters.yml#/SCOPE'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of scopes
+      tags:
+        - scopes
+    get:
+      operationId: GetScopesScope
+      parameters:
+        - $ref: '../oas3-parameters.yml#/SCOPE'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a scopes by ID
+      tags:
+        - scopes
+    post:
+      operationId: PostScopesScope
+      parameters:
+        - $ref: '../oas3-parameters.yml#/SCOPE'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/scopes'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of scopes
+      tags:
+        - scopes

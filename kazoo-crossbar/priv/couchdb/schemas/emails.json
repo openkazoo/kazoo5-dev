@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "emails",
+    "description": "Schema for an email address",
+    "properties": {
+        "dkim_selector": {
+            "description": "This is the selector that the receiving server should use to look up the DNS record",
+            "type": "string"
+        },
+        "email": {
+            "description": "The email address of the user",
+            "format": "email",
+            "type": "string"
+        }
+    },
+    "required": [
+        "email"
+    ],
+    "type": "object"
+}

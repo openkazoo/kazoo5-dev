@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "external_number_claim",
+    "description": "Schema to request verification of an external number",
+    "properties": {
+        "code": {
+            "description": "The verification code number sent to the external number",
+            "maxLength": 4,
+            "minLength": 4,
+            "support_level": "supported",
+            "type": "string"
+        }
+    },
+    "required": [
+        "code"
+    ],
+    "type": "object"
+}

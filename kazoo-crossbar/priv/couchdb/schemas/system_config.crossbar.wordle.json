@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.crossbar.wordle",
+    "description": "Schema for crossbar.wordle system_config",
+    "properties": {
+        "path_to_words": {
+            "default": "/usr/share/dict/words",
+            "description": "crossbar wordle path_to_words",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

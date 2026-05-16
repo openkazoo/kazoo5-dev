@@ -1,0 +1,36 @@
+paths:
+  /accounts/{ACCOUNT_ID}/conference_auth:
+    put:
+      operationId: PutAccountsAccountIdConferenceAuth
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/conference_auth'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of conference_auth
+      tags:
+        - conference_auth
+  /accounts/{ACCOUNT_ID}/conference_auth/{CONFERENCE_ID}:
+    put:
+      operationId: PutAccountsAccountIdConferenceAuthConferenceId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/CONFERENCE_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/conference_auth'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of conference_auth
+      tags:
+        - conference_auth

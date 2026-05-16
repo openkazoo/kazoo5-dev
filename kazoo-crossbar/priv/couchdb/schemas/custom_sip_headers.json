@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "custom_sip_headers",
+    "additionalProperties": false,
+    "description": "Custom SIP headers applied to an INVITE",
+    "patternProperties": {
+        "^[a-zA-z0-9_\\-]+$": {
+            "oneOf": [
+                {
+                    "description": "The SIP header to add",
+                    "type": "string"
+                },
+                {
+                    "description": "The SIP header to add",
+                    "type": "boolean"
+                },
+                {
+                    "description": "The SIP header to add",
+                    "type": "integer"
+                }
+            ]
+        }
+    },
+    "type": "object"
+}

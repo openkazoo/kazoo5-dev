@@ -1,0 +1,86 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.braintree",
+    "description": "Schema for braintree system_config",
+    "properties": {
+        "client_token_version": {
+            "default": "2",
+            "description": "braintree client token version",
+            "type": "string"
+        },
+        "debug": {
+            "default": false,
+            "description": "braintree debug",
+            "type": "boolean"
+        },
+        "default_environment": {
+            "default": "",
+            "description": "braintree default environment",
+            "type": "string"
+        },
+        "default_merchant_id": {
+            "default": "",
+            "description": "braintree default merchant id",
+            "type": "string"
+        },
+        "default_private_key": {
+            "default": "",
+            "description": "braintree default private key",
+            "type": "string"
+        },
+        "default_public_key": {
+            "default": "",
+            "description": "braintree default public key",
+            "type": "string"
+        },
+        "max_amount": {
+            "default": 200,
+            "description": "braintree maximum amount",
+            "type": "number"
+        },
+        "min_amount": {
+            "default": 5,
+            "description": "braintree minimum amount",
+            "type": "number"
+        },
+        "require_surcharge_accepted": {
+            "default": false,
+            "description": "braintree require_surcharge_accepted",
+            "type": "boolean"
+        },
+        "should_prorate": {
+            "default": true,
+            "description": "braintree should prorate",
+            "type": "boolean"
+        },
+        "surcharge": {
+            "default": true,
+            "description": "braintree surcharge",
+            "type": "boolean"
+        },
+        "surcharge_cards": {
+            "default": [
+                "visa",
+                "mastercard"
+            ],
+            "description": "braintree surcharge_cards",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "surcharge_regions": {
+            "default": {
+                "_": 2.6,
+                "co": 2.0,
+                "ct": false,
+                "ma": false,
+                "me": false,
+                "ny": false
+            },
+            "description": "braintree surcharge_regions",
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

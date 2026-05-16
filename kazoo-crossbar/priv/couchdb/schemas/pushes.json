@@ -1,0 +1,164 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "pushes",
+    "description": "Generic endpoint's push notifications",
+    "properties": {
+        "alert": {
+            "description": "Alert parameters",
+            "properties": {
+                "body": {
+                    "description": "The body of the notification",
+                    "type": "string"
+                },
+                "body_key": {
+                    "description": "The key for a localized notification body",
+                    "type": "string"
+                },
+                "body_params": {
+                    "description": "The array of values to replace placeholders in the localized body",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "subtitle": {
+                    "description": "The subtitle of the notification",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "The title of the notification",
+                    "type": "string"
+                },
+                "title_key": {
+                    "description": "The key for a localized notification title",
+                    "type": "string"
+                },
+                "title_params": {
+                    "description": "The array of values to replace placeholders in the localized title",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "apns": {
+            "description": "APNs parameters",
+            "properties": {
+                "alert": {
+                    "properties": {
+                        "subtitle_key": {
+                            "description": "The key for a localized notification subtitle",
+                            "type": "string"
+                        },
+                        "subtitle_params": {
+                            "description": "The array of values to replace placeholders in the localized subtitle",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "push_type": {
+                    "description": "The type of push notification",
+                    "enum": [
+                        "alert",
+                        "background",
+                        "complication",
+                        "fileprovider",
+                        "location",
+                        "mdm",
+                        "voip"
+                    ],
+                    "type": "string"
+                },
+                "thread_id": {
+                    "description": "The app-specific identifier for grouping related notifications",
+                    "type": "string"
+                },
+                "topic": {
+                    "description": "The topic for the notification",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "badge": {
+            "description": "The value to set the home screen app icon badge to. `0` removes the badge",
+            "type": "integer"
+        },
+        "call_id": {
+            "description": "(Legacy) The call ID for a call notification",
+            "minLength": 1,
+            "type": "string"
+        },
+        "category": {
+            "description": "The app-specific type of notification, which corresponds to a pre-registered `UNNotificationCategory` on iOS or an intent filter launched on click on Android",
+            "type": "string"
+        },
+        "collapse_id": {
+            "description": "Coalesce multiple notifications matching the same ID into one",
+            "type": "string"
+        },
+        "content_available": {
+            "description": "Specify `true` to deliver the notification as a silent background update on iOS",
+            "type": "boolean"
+        },
+        "content_mutable": {
+            "description": "Specify `true` to allow a notification service app extension on iOS to modify the notification's content before delivery",
+            "type": "boolean"
+        },
+        "data": {
+            "description": "The custom data to include in the notification",
+            "type": "object"
+        },
+        "fcm": {
+            "android": {
+                "description": "FCM Android parameters",
+                "properties": {
+                    "channel_id": {
+                        "description": "The pre-registered notification channel to associate the notification with",
+                        "type": "string"
+                    },
+                    "color": {
+                        "description": "The color, expressed in `#rrggbb` format, of the notification",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "The name of a drawable resource to use as the notification's icon",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "description": "Replace existing notifications in the notification drawer that have the same tag",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "description": "FCM parameters",
+            "type": "object"
+        },
+        "priority": {
+            "default": "high",
+            "description": "The priority of the notification",
+            "enum": [
+                "low",
+                "normal",
+                "high"
+            ],
+            "type": "string"
+        },
+        "sound": {
+            "description": "The name of a sound file to play when the device receives the notification",
+            "type": "string"
+        },
+        "ttl": {
+            "description": "The duration (in seconds) for which notification delivery should be retried if it fails",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

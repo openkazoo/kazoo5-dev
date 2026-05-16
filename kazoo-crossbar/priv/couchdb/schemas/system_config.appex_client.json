@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.appex_client",
+    "description": "Schema for appex_client system_config",
+    "properties": {
+        "api_url": {
+            "description": "appex_client api_url",
+            "type": "string"
+        },
+        "app_exchange_url": {
+            "description": "appex_client app_exchange_url",
+            "type": "string"
+        },
+        "cluster_secret": {
+            "description": "appex_client cluster_secret",
+            "type": "string"
+        },
+        "enabled": {
+            "default": false,
+            "description": "appex_client enabled",
+            "type": "boolean"
+        },
+        "fetch_timer_s": {
+            "default": 3600,
+            "description": "appex_client fetch_timer_s",
+            "type": "integer"
+        },
+        "http_timeout_s": {
+            "default": 120,
+            "description": "appex_client http_timeout_s",
+            "type": "integer"
+        },
+        "is_aio_cluster": {
+            "default": false,
+            "description": "appex_client is_aio_cluster",
+            "type": "boolean"
+        },
+        "marketplace_url": {
+            "description": "appex_client marketplace_url",
+            "type": "string"
+        },
+        "ui_wrapper_route_path": {
+            "default": "ui",
+            "description": "Route path to use for Crossbar Appex UI wrapper, this will add a new route to Crossbar router specifically to serve UI assets files.",
+            "type": "string"
+        },
+        "use_tcp": {
+            "default": false,
+            "description": "appex_client use_tcp for dns query",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

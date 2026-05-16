@@ -1,0 +1,3 @@
+  - 'Hangups: Listen for abnormal hangups and store them in Couch':
+    - 'applications/hangups/doc/README.md'
+    - 'applications/hangups/doc/maintenance.md'

@@ -1,0 +1,20 @@
+paths:
+  /accounts/{ACCOUNT_ID}/{ENDPOINT_TYPE}/{ENDPOINT_ID}/pushes:
+    put:
+      operationId: PutAccountsAccountIdEndpointTypeEndpointIdPushes
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/ENDPOINT_TYPE'
+        - $ref: '../oas3-parameters.yml#/ENDPOINT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/pushes'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of pushes
+      tags:
+        - pushes

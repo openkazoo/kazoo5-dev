@@ -1,0 +1,76 @@
+%%%-----------------------------------------------------------------------------
+%%% @copyright (C) 2010-2020, 2600Hz
+%%% @doc
+%%% This Source Code Form is subject to the terms of the Mozilla Public
+%%% License, v. 2.0. If a copy of the MPL was not distributed with this
+%%% file, You can obtain one at https://mozilla.org/MPL/2.0/.
+%%%
+%%% @end
+%%%-----------------------------------------------------------------------------
+-module(seq_skels).
+
+%% Manual testing
+-export([seq/0
+        ,cleanup/0
+        ]).
+
+-include("properly.hrl").
+
+-define(ACCOUNT_NAMES, [<<?MODULE_STRING>>]).
+
+-spec seq() -> 'ok'.
+seq() ->
+    API = pqc_cb_api:init_api(['crossbar'], ['cb_skels']),
+    AccountId = create_account(API),
+
+    EmptySummaryResp = pqc_cb_skels:summary(API, AccountId),
+    lager:info("empty summary resp: ~s", [EmptySummaryResp]),
+    [] = kz_json:get_list_value(<<"data">>, kz_json:decode(EmptySummaryResp)),
+
+    SkelJObj = new_skel(),
+    CreateResp = pqc_cb_skels:create(API, AccountId, SkelJObj),
+    lager:info("created skel ~s", [CreateResp]),
+    CreatedSkel = kz_json:get_json_value(<<"data">>, kz_json:decode(CreateResp)),
+    SkelId = kz_doc:id(CreatedSkel),
+
+    Patch = kz_json:from_list([{<<"custom">>, <<"value">>}]),
+    PatchResp = pqc_cb_skels:patch(API, AccountId, SkelId, Patch),
+    lager:info("patched to ~s", [PatchResp]),
+
+    SummaryResp = pqc_cb_skels:summary(API, AccountId),
+    lager:info("summary resp: ~s", [SummaryResp]),
+    [SkelId] = kz_json:get_list_value(<<"data">>, kz_json:decode(SummaryResp)),
+
+    DeleteResp = pqc_cb_skels:delete(API, AccountId, SkelId),
+    lager:info("delete resp: ~s", [DeleteResp]),
+
+    EmptyAgain = pqc_cb_skels:summary(API, AccountId),
+    lager:info("empty summary resp: ~s", [EmptyAgain]),
+    [] = kz_json:get_list_value(<<"data">>, kz_json:decode(EmptyAgain)),
+
+    cleanup(API),
+    lager:info("FINISHED SKEL SEQ").
+
+-spec cleanup() -> 'ok'.
+cleanup() ->
+    _ = seq_accounts:cleanup_accounts(?ACCOUNT_NAMES),
+    cleanup_system().
+
+cleanup(API) ->
+    lager:info("CLEANUP TIME, EVERYBODY HELPS"),
+    _ = seq_accounts:cleanup_accounts(API, ?ACCOUNT_NAMES),
+    _ = pqc_cb_api:cleanup(API),
+    cleanup_system().
+
+cleanup_system() -> 'ok'.
+
+-spec create_account(pqc_cb_api:state()) -> kz_term:ne_binary().
+create_account(API) ->
+    AccountResp = properly_accountant:create_account(API, hd(?ACCOUNT_NAMES)),
+    lager:info("created account: ~s", [AccountResp]),
+
+    kz_json:get_ne_binary_value([<<"data">>, <<"id">>], kz_json:decode(AccountResp)).
+
+-spec new_skel() -> kzd_skels:doc().
+new_skel() ->
+    kz_doc:public_fields(kzd_skels:new()).

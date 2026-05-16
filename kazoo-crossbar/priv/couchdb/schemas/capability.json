@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "capability",
+    "description": "Capabilities represent the additional features a cluster (or reseller) is providing descendant accounts",
+    "properties": {
+        "description": {
+            "description": "Optional description of what the capability offers",
+            "type": "string"
+        },
+        "enabled": {
+            "description": "Is the capability currently offered",
+            "type": "boolean"
+        },
+        "provided_by": {
+            "description": "ID of the provider of the capability (reseller) or 'system'",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

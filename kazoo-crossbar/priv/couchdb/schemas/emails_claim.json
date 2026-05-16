@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "email_claim",
+    "description": "Schema to request verification of an email address",
+    "properties": {
+        "code": {
+            "description": "The verification code number sent to the email address",
+            "maxLength": 4,
+            "minLength": 4,
+            "support_level": "supported",
+            "type": "string"
+        }
+    },
+    "required": [
+        "code"
+    ],
+    "type": "object"
+}

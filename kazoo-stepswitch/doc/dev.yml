@@ -1,0 +1,7 @@
+  - 'Stepswitch: Routes calls coming or going offnet, like a line finder':
+    - 'applications/stepswitch/doc/README.md'
+    - 'applications/stepswitch/doc/emergency.md'
+    - 'applications/stepswitch/doc/maintenance.md'
+    - 'applications/stepswitch/doc/resource_selectors.md'
+    - 'applications/stepswitch/doc/resources.md'
+    - 'applications/stepswitch/doc/rules.md'

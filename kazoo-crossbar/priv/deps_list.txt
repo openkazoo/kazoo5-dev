@@ -1,0 +1,71 @@
+KAZOO 🧡s these Erlang dependencies:
+
+| Dependency              | License |
+| amqp_client             | This package is licensed under the MPL 2.0. For the MPL 2.0, please see LICENSE-MPL-RabbitMQ. |
+| aten                    | This package, Ra, is dual-licensed under
+the Apache License v2 and the Mozilla Public License v1.1. |
+| base16                  | https://github.com/goj/base16.git/blob/master/LICENSE |
+| bear                    | https://github.com/boundary/bear.git/blob/master/LICENSE |
+| certifi                 | https://github.com/certifi/erlang-certifi/blob/master/LICENSE |
+| couchbeam               | https://github.com/2600hz/erlang-couchbeam/blob/master/LICENSE |
+| cowboy                  | https://github.com/2600hz/erlang-cowboy/blob/master/LICENSE |
+| cowlib                  | https://github.com/2600hz/erlang-cowlib/blob/master/LICENSE |
+| credentials_obfuscation | This package, the credential obfuscation library, is double-licensed under
+the Mozilla Public License 2.0 ("MPL") and the Apache License version 2 ("ASL"). For the MPL,
+please see LICENSE-MPL-RabbitMQ. For the ASL, please see LICENSE-APACHE2. |
+| eflame                  | https://github.com/slfritchie/eflame/blob/master/LICENSE |
+| egithub                 | Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/ |
+| eiconv                  | https://github.com/zotonic/eiconv/blob/master/LICENSE |
+| eini                    | https://github.com/erlcloud/eini.git/blob/master/LICENSE |
+| elvis                   | https://github.com/2600hz/erlang-elvis/blob/master/LICENSE |
+| elvis_core              |                                  Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/ |
+| elvis_mk                | https://github.com/inaka/elvis.mk.git/blob/master/LICENSE |
+| epgsql                  | https://github.com/epgsql/epgsql/blob/master/LICENSE |
+| erlang_localtime        | https://github.com/2600hz/erlang-localtime/blob/master/LICENSE |
+| erlydtl                 | https://github.com/erlydtl/erlydtl/blob/master/LICENSE |
+| ersip                   | https://github.com/2600hz/erlang-ersip/blob/master/LICENSE |
+| espandsp                | https://github.com/2600hz/erlang-espandsp/blob/master/LICENSE |
+| fcm                     | https://github.com/2600hz/erlang-fcm.git/blob/master/LICENSE |
+| folsom                  | https://github.com/2600hz/erlang-folsom/blob/master/LICENSE |
+| forms                   | The MIT License (MIT) |
+| gen_batch_server        | This package, Ra, is dual-licensed under
+the Apache License v2 and the Mozilla Public License v1.1. |
+| gen_smtp                | https://github.com/2600hz/erlang-gen_smtp/blob/master/LICENSE |
+| goldrush                | https://github.com/DeadZen/goldrush.git/blob/master/LICENSE |
+| gproc                   | https://github.com/2600hz/erlang-gproc/blob/master/LICENSE |
+| gun                     | https://github.com/2600hz/erlang-gun/blob/master/LICENSE |
+| hackney                 | https://github.com/benoitc/hackney.git/blob/master/LICENSE |
+| hep                     | https://github.com/2600hz/hep-erlang/blob/master/LICENSE |
+| idna                    | https://github.com/benoitc/erlang-idna/blob/master/LICENSE |
+| inet_cidr               | https://github.com/2600hz/erlang-inet_cidr.git/blob/master/LICENSE |
+| jesse                   | https://github.com/2600hz/jesse/blob/master/LICENSE |
+| jiffy                   | https://github.com/2600hz/erlang-jiffy/blob/master/LICENSE |
+| jsx                     | The MIT License |
+| katana_code             |                                  Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/ |
+| lager                   | https://github.com/2600hz/erlang-lager/blob/master/LICENSE |
+| meck                    | https://github.com/2600hz/erlang-meck/blob/master/LICENSE |
+| meta                    | https://github.com/2600hz/erlang-meta/blob/master/LICENSE |
+| metrics                 | https://github.com/benoitc/erlang-metrics/blob/master/LICENSE |
+| mimerl                  | https://github.com/benoitc/mimerl/blob/master/LICENSE |
+| nklib                   | https://github.com/2600hz/erlang-nklib/blob/master/LICENSE |
+| plists                  | https://github.com/2600hz/erlang-plists/blob/master/LICENSE |
+| poolboy                 | https://github.com/devinus/poolboy/blob/master/LICENSE |
+| qrcode                  | https://github.com/2600hz/erlang-qrcode/blob/master/LICENSE |
+| ra                      | https://github.com/2600hz/erlang-ra.git/blob/master/LICENSE |
+| rabbit_common           | This package, the RabbitMQ commons library, is licensed under the MPL. For the
+MPL, please see LICENSE-MPL-RabbitMQ. |
+| ranch                   | https://github.com/2600hz/erlang-ranch/blob/master/LICENSE |
+| recon                   | https://github.com/2600hz/erlang-recon/blob/master/LICENSE |
+| ssl_verify_fun          | https://github.com/deadtrickster/ssl_verify_fun.erl/blob/master/LICENSE |
+| syslog                  | https://github.com/2600hz/erlang-syslog/blob/master/LICENSE |
+| trie                    | https://github.com/2600hz/erlang-trie/blob/master/LICENSE |
+| yamerl                  | https://github.com/2600hz/erlang-yamerl/blob/master/LICENSE |
+| zipper                  | Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/ |

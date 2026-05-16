@@ -1,0 +1,255 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "contacts",
+    "description": "Schema for a contact",
+    "examples": [
+        {
+            "contacts": [
+                {
+                    "contact": "+14123456789",
+                    "device_type": "work",
+                    "primary": true,
+                    "type": "voice"
+                },
+                {
+                    "contact": "+14123456780",
+                    "device_type": "home",
+                    "primary": false,
+                    "type": "voice"
+                },
+                {
+                    "contact": "user@2600hz.com",
+                    "email_type": "work",
+                    "primary": true,
+                    "type": "email"
+                },
+                {
+                    "contact": "+14123456788",
+                    "device_type": "personal",
+                    "primary": false,
+                    "type": "sms"
+                }
+            ],
+            "first_name": "John",
+            "last_name": "Keith",
+            "organization": {
+                "name": "2600Hz"
+            }
+        }
+    ],
+    "properties": {
+        "capture_group": {
+            "default": {},
+            "description": "The capture group information",
+            "examples": [
+                {
+                    "key": "01",
+                    "length": 2
+                }
+            ],
+            "properties": {
+                "key": {
+                    "description": "The number which is used to select this contact, length should be same as `length`",
+                    "examples": [
+                        "01"
+                    ],
+                    "type": "string"
+                },
+                "length": {
+                    "description": "Length of the numbers in the contacts for which it used to select desire Caller ID",
+                    "examples": [
+                        2
+                    ],
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "contacts": {
+            "description": "A list of contact information",
+            "items": {
+                "description": "A Schema",
+                "examples": [
+                    {
+                        "contact": "+14123456789",
+                        "device_type": "work",
+                        "primary": true,
+                        "type": "voice"
+                    },
+                    {
+                        "contact": "+14123456780",
+                        "device_type": "home",
+                        "primary": false,
+                        "type": "voice"
+                    },
+                    {
+                        "contact": "user@2600hz.com",
+                        "email_type": "work",
+                        "primary": true,
+                        "type": "email"
+                    },
+                    {
+                        "contact": "+14123456788",
+                        "device_type": "personal",
+                        "primary": false,
+                        "type": "sms"
+                    }
+                ],
+                "properties": {
+                    "contact": {
+                        "description": "The phone number or email associated with the contact",
+                        "examples": [
+                            "+14123456789",
+                            "+14123456780",
+                            "user@2600hz.com",
+                            "+14123456788"
+                        ],
+                        "type": "string"
+                    },
+                    "device_type": {
+                        "description": "The type of the device",
+                        "enum": [
+                            "work",
+                            "home",
+                            "mobile",
+                            "personal",
+                            "fax"
+                        ],
+                        "type": "string"
+                    },
+                    "email_type": {
+                        "description": "The type of the email",
+                        "enum": [
+                            "work",
+                            "home"
+                        ],
+                        "type": "string"
+                    },
+                    "ext": {
+                        "description": "The extension of the user",
+                        "examples": [
+                            "356",
+                            "622"
+                        ],
+                        "type": "string"
+                    },
+                    "primary": {
+                        "description": "If this is the primary contact for this contact type",
+                        "examples": [
+                            true
+                        ],
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "description": "The type of this contact",
+                        "enum": [
+                            "voice",
+                            "email",
+                            "sms"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "contact",
+                    "primary"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "favorite": {
+            "default": false,
+            "description": "Whether the contact is a favorite",
+            "type": "boolean"
+        },
+        "first_name": {
+            "description": "The first name of the contact",
+            "examples": [
+                "John"
+            ],
+            "type": "string"
+        },
+        "history": {
+            "default": [],
+            "description": "The history of contact usage",
+            "items": {
+                "description": "A Schema",
+                "examples": [
+                    {
+                        "contact": {
+                            "contact": "+14123456789",
+                            "device_type": "work",
+                            "primary": true,
+                            "type": "voice"
+                        },
+                        "notes": "Call John about the contact list feature and discussed a lot of ideas.  Told him I would call back in 3 days.",
+                        "timestamp": 123456789
+                    }
+                ],
+                "properties": {
+                    "contact": {
+                        "description": "The contact that was used",
+                        "type": "object"
+                    },
+                    "notes": {
+                        "description": "Notes from the communication",
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "description": "The gregorian timestamp",
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "contact"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "last_name": {
+            "description": "The last name of the contact",
+            "examples": [
+                "Keith"
+            ],
+            "type": "string"
+        },
+        "organization": {
+            "default": {},
+            "description": "The organization this entity belongs to",
+            "examples": [
+                {
+                    "name": "2600Hz"
+                }
+            ],
+            "properties": {
+                "name": {
+                    "description": "The name of the organization",
+                    "examples": [
+                        "2600Hz"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "pattern": {
+            "description": "Match pattern",
+            "type": "string"
+        },
+        "tags": {
+            "description": "Tags that contact belong to",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "first_name",
+        "contacts"
+    ],
+    "type": "object"
+}

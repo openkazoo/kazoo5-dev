@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.registrar.auth_type",
+    "description": "Schema for registrar's ACL based on authorization type",
+    "properties": {
+        "allow": {
+            "default": [],
+            "description": "list of allowed IPs to be used when registering some devices",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "deny": {
+            "default": [],
+            "description": "list of denied IPs to be used when registering some devices",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}

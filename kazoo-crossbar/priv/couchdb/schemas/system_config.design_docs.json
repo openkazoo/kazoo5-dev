@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.design_docs",
+    "description": "Schema for design_docs system_config",
+    "properties": {
+        "classifications": {
+            "description": "classifications options",
+            "type": "object"
+        },
+        "options": {
+            "default": {
+                "autoupdate": false
+            },
+            "description": "design_docs options default",
+            "type": "object"
+        },
+        "views": {
+            "description": "views options",
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

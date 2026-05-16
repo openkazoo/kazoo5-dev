@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "users_delete",
+    "description": "Schema for deleting a user",
+    "properties": {
+        "object_types": {
+            "oneOf": [
+                {
+                    "description": "List of object types owned by the user that should also be deleted as part of the user delete process. NOTE: If \"phone_numbers\" is included in the list, numbers assigned to callflows owned by the user will also be released.",
+                    "items": {
+                        "enum": [
+                            "phone_numbers",
+                            "callflow",
+                            "vmbox",
+                            "device",
+                            "conference",
+                            "faxbox",
+                            "media"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                {
+                    "description": "List of object types owned by the user that should also be deleted as part of the user delete process.",
+                    "enum": [
+                        "all"
+                    ],
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "type": "object"
+}

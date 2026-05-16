@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "presence.state",
+    "description": "Desired state to be set on this request",
+    "properties": {
+        "state": {
+            "description": "Desired state to be set on this request",
+            "enum": [
+                "early",
+                "confirmed",
+                "terminated"
+            ],
+            "support_level": "supported",
+            "type": "string"
+        }
+    },
+    "required": [
+        "state"
+    ],
+    "type": "object"
+}

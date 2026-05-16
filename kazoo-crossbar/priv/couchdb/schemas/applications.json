@@ -1,0 +1,99 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "applications",
+    "description": "UI application metadata schema",
+    "properties": {
+        "api_url": {
+            "description": "Optional API URL that application can use. default to Kazoo Crossbar API",
+            "format": "uri",
+            "minLength": 7,
+            "type": "string"
+        },
+        "author": {
+            "description": "Name of app publisher",
+            "maxLength": 64,
+            "minLength": 2,
+            "type": "string"
+        },
+        "i18n": {
+            "$ref": "app_i18n",
+            "type": "object"
+        },
+        "icon": {
+            "description": "Name of application icon",
+            "type": "string"
+        },
+        "license": {
+            "description": "Application license",
+            "type": "string"
+        },
+        "masqueradable": {
+            "default": true,
+            "description": "Whether an application is masqueradable or not",
+            "type": "boolean"
+        },
+        "name": {
+            "description": "Application name",
+            "maxLength": 64,
+            "minLength": 3,
+            "type": "string"
+        },
+        "phase": {
+            "description": "Application test phase",
+            "enum": [
+                "alpha",
+                "beta",
+                "gold"
+            ],
+            "type": "string"
+        },
+        "price": {
+            "description": "Application price",
+            "minimum": 0,
+            "type": "number"
+        },
+        "published": {
+            "default": true,
+            "description": "Indicated if the app is published",
+            "type": "boolean"
+        },
+        "screenshots": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "source_url": {
+            "description": "an URL which indicates where the UI must load the application source files",
+            "format": "uri",
+            "type": "string"
+        },
+        "tags": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "type": {
+            "description": "Type of application that can be used, for example commland_ui, monster_ui",
+            "maxLength": 64,
+            "minLength": 2,
+            "type": "string"
+        },
+        "urls": {
+            "type": "object"
+        },
+        "version": {
+            "description": "Application version",
+            "type": "string"
+        }
+    },
+    "required": [
+        "author",
+        "license",
+        "name",
+        "version",
+        "type"
+    ],
+    "type": "object"
+}

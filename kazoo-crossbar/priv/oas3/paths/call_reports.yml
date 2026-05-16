@@ -1,0 +1,30 @@
+paths:
+  /accounts/{ACCOUNT_ID}/call_reports:
+    put:
+      operationId: PutAccountsAccountIdCallReports
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/call_reports'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of call_reports
+      tags:
+        - call_reports
+  /accounts/{ACCOUNT_ID}/call_reports/allowed_types:
+    get:
+      operationId: GetAccountsAccountIdCallReportsAllowedTypes
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get allowed_types of call_reports
+      tags:
+        - call_reports

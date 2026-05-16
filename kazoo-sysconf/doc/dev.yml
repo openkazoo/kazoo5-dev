@@ -1,0 +1,2 @@
+  - 'Sysconf: Expose KAZOO system configuration via AMQP':
+    - 'applications/sysconf/doc/README.md'

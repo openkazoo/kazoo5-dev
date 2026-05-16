@@ -1,0 +1,85 @@
+<configuration name="switch.conf" description="Core Configuration">
+
+    <cli-keybindings>
+        <key name="1" value="help"/>
+        <key name="2" value="status"/>
+        <key name="3" value="show channels"/>
+        <key name="4" value="show calls"/>
+        <key name="5" value="sofia status"/>
+        <key name="6" value="reloadxml"/>
+        <key name="7" value="console loglevel 0"/>
+        <key name="8" value="console loglevel 7"/>
+        <key name="9" value="sofia status profile internal"/>
+        <key name="10" value="sofia profile internal siptrace on"/>
+        <key name="11" value="sofia profile internal siptrace off"/>
+        <key name="12" value="version"/>
+    </cli-keybindings> 
+
+    <settings>
+        <param name="max-db-handles" value="50"/>
+        <param name="db-handle-timeout" value="10"/>
+        <param name="loglevel" value="debug"/>
+        <param name="dump-cores" value="yes"/>
+        <!--<param name="debug-level" value="1"/>-->
+        <!--<param name="sql-buffer-len" value="1"/>-->
+        <!--<param name="max-sql-buffer-len" value="1"/>-->
+        <param name="auto-create-schemas" value="true"/>
+        <!--<param name="enable-early-hangup" value="true"/>-->
+        <param name="colorize-console" value="true"/>
+        <param name="mailer-app" value="sendmail"/>
+        <param name="mailer-app-args" value="-t"/>
+        <param name="max-sessions" value="5000"/>
+        <param name="sessions-per-second" value="200"/>
+        <param name="max-dtmf-duration" value="2000"/>
+        <param name="min-dtmf-duration" value="200"/>
+        <param name="default-dtmf-duration" value="1000"/>
+        <!--<param name="enable-monotonic-timing" value="true"/>-->
+        <!--<param name="enable-clock-nanosleep" value="true"/>-->
+        <!--<param name="enable-cond-yield" value="true"/>-->
+        <!--<param name="enable-timer-matrix" value="true"/>-->
+        <!--<param name="verbose-channel-events" value="true"/>-->
+        <!--<param name="min-idle-cpu" value="15"/>-->
+        <!--<param name="tipping-point" value="15"/>-->
+        <!--<param name="timer-affinity" value="disabled"/>-->
+        <param name="rtp-start-port" value="16384"/>
+        <param name="rtp-end-port" value="32768"/>
+        <param name="rtp-enable-zrtp" value="true"/>
+        <!--<param name="core-db-dsn" value="fs_core"/>-->
+        <!--<param name="core-dbtype" value="MSSQL"/>-->
+
+        <!-- kazoo specific -->
+        <param name="use-get-hostname-by-name" value="true"/>
+        <param name="dialplan-timestamps" value="true" />
+        <param name="events-use-dispatch" value="true"/>
+        <param name="initial-event-threads" value="4"/>
+        <param name="caller-profile-soft-variables-uses-prefix" value="true"/>
+        <param name="caller-profile-soft-lookup-values" value="true"/>
+        <param name="event-channel-enable-hierarchy-deliver" value="true"/>
+        <param name="event-channel-hierarchy-deliver-once" value="true"/>
+        <param name="event-channel-log-undeliverable-json" value="true"/>
+        <param name="disable-event-channel-execute" value="true"/>
+        <param name="disable-event-channel-execute-complete" value="true"/>
+        <param name="enable-event-channel-app-execute-complete" value="true"/>
+
+        <!-- resource preservation -->
+        <param name="disable-chat-thread" value="true"/>
+        <param name="enable-msrp" value="false"/>
+
+        <!-- hacking -->
+        <param name="enable-core-event-new-dispatcher" value="true"/>
+        <param name="disable-channel-test-flag-mutex" value="false"/>
+        <param name="disable-rtp-ready-mutex" value="false"/>
+        <param name="core-event-dispatcher-os-yield" value="true"/>
+        <!--<param name="core-event-dispatcher-use-all-cpus" value="true"/>-->
+
+        <!-- testing -->
+        <param name="timer-affinity" value="0"/>
+        <param name="session-thread-pool" value="false"/>
+
+    </settings>
+    <variables>
+        <variable name="loopback_initial_codec" value="PCMU"/>
+        <variable name="redirect-mod-load-to-com-module" value="true"/>
+        <variable name="enable-acl-uuid-cache" value="true"/>
+    </variables>
+</configuration>

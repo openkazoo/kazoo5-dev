@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "account_config.default",
+    "description": "Schema for default account_config",
+    "properties": {
+        "max_upload_size": {
+            "default": 20,
+            "description": "maximum upload file size (megabytes)",
+            "type": "integer"
+        },
+        "smtp_max_msg_size": {
+            "default": 20,
+            "description": "maximum smpt message size (megabytes)",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

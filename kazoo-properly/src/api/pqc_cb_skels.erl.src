@@ -1,0 +1,55 @@
+%%%-----------------------------------------------------------------------------
+%%% @copyright (C) 2010-2020, 2600Hz
+%%% @doc
+%%% This Source Code Form is subject to the terms of the Mozilla Public
+%%% License, v. 2.0. If a copy of the MPL was not distributed with this
+%%% file, You can obtain one at https://mozilla.org/MPL/2.0/.
+%%%
+%%% @end
+%%%-----------------------------------------------------------------------------
+-module(pqc_cb_skels).
+
+%% API Shims
+-export([summary/2
+        ,create/3
+        ,fetch/3
+        ,update/3
+        ,delete/3
+        ,patch/4
+        ]).
+
+-include("properly.hrl").
+
+-spec summary(pqc_cb_api:state(), kz_term:ne_binary()) -> pqc_cb_api:response().
+summary(API, AccountId) ->
+    pqc_cb_crud:summary(API, skels_url(API, AccountId)).
+
+-spec create(pqc_cb_api:state(), kz_term:ne_binary(), kzd_skels:doc()) -> pqc_cb_api:response().
+create(API, AccountId, SkelJObj) ->
+    Envelope = pqc_cb_api:create_envelope(SkelJObj),
+    pqc_cb_crud:create(API, skels_url(API, AccountId), Envelope).
+
+-spec fetch(pqc_cb_api:state(), kz_term:ne_binary(), kz_term:ne_binary()) -> pqc_cb_api:response().
+fetch(API, AccountId, SkelId) ->
+    pqc_cb_crud:fetch(API, skel_url(API, AccountId, SkelId)).
+
+-spec delete(pqc_cb_api:state(), kz_term:ne_binary(), kz_term:ne_binary()) -> pqc_cb_api:response().
+delete(API, AccountId, SkelId) ->
+    pqc_cb_crud:delete(API, skel_url(API, AccountId, SkelId)).
+
+-spec update(pqc_cb_api:state(), kz_term:ne_binary(), kzd_skels:doc()) -> pqc_cb_api:response().
+update(API, AccountId, SkelJObj) ->
+    SkelId = kz_doc:id(SkelJObj),
+    Envelope = pqc_cb_api:create_envelope(SkelJObj),
+    pqc_cb_crud:update(API, skel_url(API, AccountId, SkelId), Envelope).
+
+-spec patch(pqc_cb_api:state(), kz_term:ne_binary(), kz_term:ne_binary(), kz_json:object()) -> pqc_cb_api:response().
+patch(API, AccountId, SkelId, PatchJObj) ->
+    Envelope = pqc_cb_api:create_envelope(PatchJObj),
+    pqc_cb_crud:patch(API, skel_url(API, AccountId, SkelId), Envelope).
+
+skels_url(API, AccountId) ->
+    pqc_cb_crud:collection_url(API, AccountId, <<"skels">>).
+
+skel_url(API, AccountId, SkelId) ->
+    pqc_cb_crud:entity_url(API, AccountId, <<"skels">>, SkelId).

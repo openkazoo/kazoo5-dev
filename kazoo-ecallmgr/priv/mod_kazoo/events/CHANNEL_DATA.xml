@@ -1,0 +1,9 @@
+<event name="CHANNEL_DATA">
+	<filters>
+		<filter type="exclude" compare="exists" name="API-Command" />
+		<filter type="exclude" compare="exists" name="scope_variable_No-Channel-Data" />
+	</filters>
+	<fields>
+		<field name="call_event" type="reference" />
+	</fields>
+</event>

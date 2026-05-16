@@ -1,0 +1,89 @@
+paths:
+  /accounts/{ACCOUNT_ID}/external_numbers:
+    get:
+      operationId: GetAccountsAccountIdExternalNumbers
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all external_numbers
+      tags:
+        - external_numbers
+    put:
+      operationId: PutAccountsAccountIdExternalNumbers
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/external_numbers'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of external_numbers
+      tags:
+        - external_numbers
+  /accounts/{ACCOUNT_ID}/external_numbers/{EXTERNAL_NUMBER_ID}:
+    delete:
+      operationId: DeleteAccountsAccountIdExternalNumbersExternalNumberId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/EXTERNAL_NUMBER_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of external_numbers
+      tags:
+        - external_numbers
+    get:
+      operationId: GetAccountsAccountIdExternalNumbersExternalNumberId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/EXTERNAL_NUMBER_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a external_numbers by ID
+      tags:
+        - external_numbers
+  /accounts/{ACCOUNT_ID}/external_numbers/{EXTERNAL_NUMBER_ID}/verify:
+    post:
+      operationId: PostAccountsAccountIdExternalNumbersExternalNumberIdVerify
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/EXTERNAL_NUMBER_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/external_numbers'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of external_numbers
+      tags:
+        - external_numbers
+    put:
+      operationId: PutAccountsAccountIdExternalNumbersExternalNumberIdVerify
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/EXTERNAL_NUMBER_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/external_numbers'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of external_numbers
+      tags:
+        - external_numbers

@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "scopes",
+    "description": "Kazoo Auth Scope Definition",
+    "properties": {
+        "id": {
+            "description": "Scope unique identifier",
+            "type": "string"
+        },
+        "scopes": {
+            "default": [],
+            "description": "List of available subscopes",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}

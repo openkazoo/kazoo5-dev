@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "entitlements",
+    "description": "Entitlements recognize the capabilities the system or reseller offer and the enrollments of accounts in those capabilities",
+    "properties": {
+        "capabilities": {
+            "patternProperties": {
+                "[a-zA-Z0-9]{3,32}": {
+                    "$ref": "capability",
+                    "description": "List of capabilities allowed for an account or user"
+                }
+            },
+            "type": "object"
+        },
+        "enrollments": {
+            "patternProperties": {
+                "[a-zA-Z0-9]{3,32}": {
+                    "$ref": "enrollment",
+                    "description": "Which capabilities an account or user are enrolled in"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

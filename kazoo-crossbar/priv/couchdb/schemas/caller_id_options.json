@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "caller_id_options",
+    "description": "Caller ID options for endpoints",
+    "properties": {
+        "format": {
+            "description": "Object for CID formatters based on number classifiers",
+            "patternProperties": {
+                ".+": {
+                    "description": "Format to use for the CID classification",
+                    "properties": {
+                        "prefix": {
+                            "description": "Prefix to add to captured group of regex",
+                            "type": "string"
+                        },
+                        "regex": {
+                            "description": "Regexp to match normalized CID and use first capture group",
+                            "type": "string"
+                        },
+                        "suffix": {
+                            "description": "Prefix to add to captured group of regex",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "properties": {
+                "all": {
+                    "description": "Format to use for all CID formatting needs (vs per-classifier)",
+                    "properties": {
+                        "prefix": {
+                            "description": "Prefix to add to captured group of regex",
+                            "type": "string"
+                        },
+                        "regex": {
+                            "description": "Regexp to match normalized CID and use first capture group",
+                            "type": "string"
+                        },
+                        "suffix": {
+                            "description": "Prefix to add to captured group of regex",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "ignore_completed_elsewhere": {
+            "description": "Suppress the completed elsewhere cause",
+            "type": "boolean"
+        },
+        "outbound_privacy": {
+            "description": "Determines what appears as caller id for offnet outbound calls. Values: full - hides name and number; name - hides only name; number - hides only number; none - hides nothing",
+            "enum": [
+                "full",
+                "name",
+                "number",
+                "none"
+            ],
+            "type": "string"
+        },
+        "privacy_method": {
+            "description": "Method to use for anonymizing CID",
+            "enum": [
+                "sip",
+                "none",
+                "kazoo"
+            ],
+            "type": "string"
+        },
+        "show_rate": {
+            "description": "Whether to show the rate",
+            "type": "boolean"
+        },
+        "type": {
+            "description": "Caller ID on endpoint to choose",
+            "enum": [
+                "internal",
+                "external",
+                "emergency"
+            ],
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

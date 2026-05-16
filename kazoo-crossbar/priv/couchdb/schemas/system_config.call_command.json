@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.call_command",
+    "description": "Schema for call_command system_config",
+    "properties": {
+        "application_timeout": {
+            "default": 500000,
+            "description": "call_command application timeout",
+            "type": "integer"
+        },
+        "bridge_timeout_extended_ms": {
+            "default": 20000,
+            "description": "call_command extended bridge timeout in ms",
+            "type": "integer"
+        },
+        "collect_timeout": {
+            "default": 5000,
+            "description": "call_command collect timeout",
+            "type": "integer"
+        },
+        "digit_timeout": {
+            "default": 3000,
+            "description": "call_command digit timeout",
+            "type": "integer"
+        },
+        "export_bridge_variables": {
+            "default": [
+                "hold_music"
+            ],
+            "description": "call_command export_bridge_variables",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "interdigit_timeout": {
+            "default": 2000,
+            "description": "call_command interdigit timeout",
+            "type": "integer"
+        },
+        "max_wait_ms": {
+            "default": 86400000,
+            "description": "call_command max_wait_ms",
+            "type": "integer"
+        },
+        "message_timeout": {
+            "default": 5000,
+            "description": "call_command message timeout",
+            "type": "integer"
+        },
+        "non_direct_modules": {
+            "default": [
+                "cf_ring_group",
+                "acdc_util",
+                "cf_qubicle",
+                "qubicle"
+            ],
+            "description": "call_command non_direct_modules",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "offnet_hunt_account_id": {
+            "description": "When using local resources, use this account instead of the account making the call (useful for resellers)",
+            "type": "string"
+        },
+        "reserved_ccv_keys": {
+            "default": [
+                "Account-ID",
+                "Account-Name",
+                "Account-Realm",
+                "Authorizing-ID",
+                "Authorizing-Type",
+                "Auto-Answer",
+                "Call-Forward",
+                "Call-Waiting-Disabled",
+                "Confirm-Cancel-Timeout",
+                "Confirm-File",
+                "Confirm-Key",
+                "Fax-Enabled",
+                "Loopback-Bowout",
+                "Media-Encryption-Enforce-Security",
+                "Media-Webrtc",
+                "Owner-ID",
+                "Presence-ID",
+                "RTCP-MUX",
+                "Realm",
+                "Require-Ignore-Early-Media",
+                "Retain-CID",
+                "SIP-Invite-Domain",
+                "Simplify-Loopback",
+                "Username"
+            ],
+            "description": "call_command reserved_ccv_keys",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "should_use_local_resources": {
+            "default": false,
+            "description": "Toggle whether to use the hunt_account_id's (or account's) resources vs the system resources",
+            "type": "boolean"
+        },
+        "unknown_cid_name": {
+            "default": "unknown",
+            "description": "the value to use when a caller ID name is required but unknown",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

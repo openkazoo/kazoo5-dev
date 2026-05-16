@@ -1,0 +1,14 @@
+paths:
+  /accounts/{ACCOUNT_ID}/i18n/{LANGUAGE}:
+    get:
+      operationId: GetAccountsAccountIdI18nLanguage
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/LANGUAGE'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a i18n by ID
+      tags:
+        - i18n

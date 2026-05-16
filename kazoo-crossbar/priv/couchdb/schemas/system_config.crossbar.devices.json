@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.crossbar.devices",
+    "description": "Schema for crossbar.devices system_config",
+    "properties": {
+        "allow_aggregates": {
+            "default": true,
+            "description": "crossbar.devices allow aggregates",
+            "type": "boolean"
+        },
+        "always_registered_device_types": {
+            "default": [
+                "application",
+                "cellphone",
+                "sip_url",
+                "landline",
+                "smartphone"
+            ],
+            "description": "crossbar devices always_registered_device_types",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "check_sync_event": {
+            "default": "check-sync",
+            "description": "crossbar devices check_sync_event",
+            "type": "string"
+        },
+        "not_registrable_device_types": {
+            "default": [
+                "application",
+                "cellphone",
+                "sip_url",
+                "landline",
+                "smartphone"
+            ],
+            "description": "crossbar devices not_registrable_device_types",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "provisioner_host": {
+            "description": "crossbar.devices provisioner host",
+            "type": "string"
+        },
+        "provisioner_referer": {
+            "description": "crossbar.devices provisioner referer",
+            "type": "string"
+        },
+        "provisioning_host": {
+            "description": "crossbar.devices provisioning host",
+            "type": "string"
+        },
+        "provisioning_referer": {
+            "description": "crossbar.devices provisioning referer",
+            "type": "string"
+        },
+        "provisioning_type": {
+            "description": "crossbar.devices provisioning type",
+            "type": "string"
+        },
+        "provisioning_url": {
+            "description": "crossbar.devices provisioning url",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

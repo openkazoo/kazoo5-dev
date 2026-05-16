@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.crossbar.call_reports",
+    "description": "Schema for crossbar.call_reports system_config",
+    "properties": {
+        "allowed_types": {
+            "default": [
+                {
+                    "id": "dropped_call",
+                    "name": "Dropped call"
+                },
+                {
+                    "id": "one_way_audio",
+                    "name": "One-way audio"
+                },
+                {
+                    "id": "broken_audio",
+                    "name": "Broken audio or bad sound"
+                },
+                {
+                    "id": "other",
+                    "name": "Other"
+                }
+            ],
+            "description": "Allowed types for call reports",
+            "items": {
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        }
+    },
+    "required": [
+        "allowed_types"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.crossbar.commland",
+    "description": "Schema for crossbar.commland system_config",
+    "properties": {
+        "base_salt": {
+            "default": "",
+            "description": "crossbar commland base_salt for generating hashes",
+            "type": "string"
+        },
+        "base_url": {
+            "default": "https://packages.2600hz.com/commland/misc/compatibility",
+            "description": "crossbar commland base_url for accessing updates",
+            "type": "string"
+        },
+        "base_version": {
+            "default": "5.1",
+            "description": "crossbar commland base_version to return when no version can be found",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

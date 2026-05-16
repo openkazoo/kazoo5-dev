@@ -1,0 +1,7 @@
+  - 'Blackhole: Websocket interface to KAZOO events':
+    - 'applications/blackhole/doc/README.md'
+    - 'applications/blackhole/doc/bindings.md'
+    - 'applications/blackhole/doc/haproxy.md'
+    - 'applications/blackhole/doc/maintenance.md'
+    - 'applications/blackhole/doc/ping.md'
+    - 'applications/blackhole/doc/troubleshooting.md'

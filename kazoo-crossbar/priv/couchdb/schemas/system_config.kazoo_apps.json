@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.kazoo_apps",
+    "description": "Schema for kazoo_apps system_config",
+    "properties": {
+        "dns_cache_size": {
+            "default": 10000,
+            "description": "kazoo_apps dns_cache_size",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.registrar",
+    "description": "Schema for registrar system_config",
+    "properties": {
+        "access_control": {
+            "patternProperties": {
+                ".+": {
+                    "description": "access_control",
+                    "type": "object"
+                }
+            },
+            "properties": {
+                "default": {
+                    "$ref": "system_config.registrar.auth_type",
+                    "default": {
+                        "allow": [],
+                        "deny": []
+                    },
+                    "description": "default ACL list",
+                    "type": "object"
+                },
+                "patternProperties": {
+                    "^[a-z_].*$": {
+                        "$ref": "system_config.registrar.auth_type",
+                        "description": "ACL list by device_type, authorization_type, etc",
+                        "type": "object"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "device_enabled_default": {
+            "default": true,
+            "description": "registrar device enabled default",
+            "type": "boolean"
+        },
+        "integration_device_types": {
+            "default": [
+                "teammate"
+            ],
+            "description": "registrar integration_device_types",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "integrations_user_agent_regexes": {
+            "default": [],
+            "description": "list of user agents regexes for accepted integration services",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "listeners": {
+            "default": 1,
+            "description": "registrar listeners",
+            "type": "integer"
+        },
+        "migrate_softphone_to_ms_teams": {
+            "default": false,
+            "description": "registrar migrate_softphone_to_ms_teams",
+            "type": "boolean"
+        },
+        "owner_enabled_default": {
+            "default": true,
+            "description": "registrar owner enabled default",
+            "type": "boolean"
+        },
+        "should_check_device_emergency_address": {
+            "default": false,
+            "description": "When enabled, REGISTER requests will be rejected if the registering device does not have an emergency address set",
+            "type": "boolean"
+        },
+        "use_aggregate": {
+            "default": true,
+            "description": "registrar use aggregate",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

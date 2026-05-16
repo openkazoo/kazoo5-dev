@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.properly",
+    "description": "Schema for properly system_config",
+    "properties": {
+        "key": {
+            "description": "properly key"
+        },
+        "nested": {
+            "properties": {
+                "ankle": {
+                    "description": "properly nested ankle"
+                },
+                "knee": {
+                    "description": "properly nested knee"
+                }
+            }
+        }
+    },
+    "type": "object"
+}

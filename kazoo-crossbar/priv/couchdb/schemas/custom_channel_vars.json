@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "custom_channel_vars",
+    "additionalProperties": false,
+    "description": "Custom Channel Vars applied to an INVITE",
+    "patternProperties": {
+        "^[a-zA-z0-9_\\-]+$": {
+            "oneOf": [
+                {
+                    "description": "The Custom Channel Var to add",
+                    "type": "string"
+                },
+                {
+                    "description": "The Custom Channel Var to add",
+                    "type": "boolean"
+                },
+                {
+                    "description": "The Custom Channel Var to add",
+                    "type": "integer"
+                },
+                {
+                    "description": "The Custom Channel Var to add",
+                    "type": "object"
+                }
+            ]
+        }
+    },
+    "type": "object"
+}

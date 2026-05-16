@@ -1,0 +1,9 @@
+{application,sysconf,
+             [{applications,[kazoo_amqp,kazoo_apps,kazoo_stdlib,lager,
+                             stdlib]},
+              {description,"Sysconf: Expose KAZOO system configuration via AMQP"},
+              {env,[{is_kazoo_app,true}]},
+              {mod,{sysconf_app,[]}},
+              {modules,[]},
+              {registered,[sysconf_sup]},
+              {vsn,"4.0.0"}]}.

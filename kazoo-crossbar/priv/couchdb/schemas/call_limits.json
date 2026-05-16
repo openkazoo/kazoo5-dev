@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "call_limits",
+    "description": "Schema for call limits",
+    "properties": {
+        "max_concurrent": {
+            "description": "Maximum number of concurrent calls allowed per endpoint",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

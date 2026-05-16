@@ -1,0 +1,3 @@
+<definition name="transfer-source">
+    <field name="_json_transfer_source" as="Transfer-Source" serialize-as="raw"/>
+</definition>

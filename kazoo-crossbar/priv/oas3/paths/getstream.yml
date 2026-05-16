@@ -1,0 +1,58 @@
+paths:
+  /accounts/{ACCOUNT_ID}/getstream:
+    delete:
+      operationId: DeleteAccountsAccountIdGetstream
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of getstream
+      tags:
+        - getstream
+    get:
+      operationId: GetAccountsAccountIdGetstream
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all getstream
+      tags:
+        - getstream
+    patch:
+      operationId: PatchAccountsAccountIdGetstream
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Patch specific fields of getstream
+      tags:
+        - getstream
+    put:
+      operationId: PutAccountsAccountIdGetstream
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of getstream
+      tags:
+        - getstream
+  /accounts/{ACCOUNT_ID}/getstream/connect:
+    put:
+      operationId: PutAccountsAccountIdGetstreamConnect
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of getstream
+      tags:
+        - getstream

@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "app_i18n",
+    "description": "Application translation",
+    "patternProperties": {
+        "[a-z]{2}\\-[A-Z]{2}": {
+            "properties": {
+                "description": {
+                    "description": "Application Summary",
+                    "minLength": 3,
+                    "type": "string"
+                },
+                "extended_description": {
+                    "description": "Application extended description",
+                    "type": "string"
+                },
+                "features": {
+                    "description": "Application features list",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "icon": {
+                    "description": "Application icon name",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "Application label",
+                    "maxLength": 64,
+                    "minLength": 3,
+                    "type": "string"
+                },
+                "screenshots": {
+                    "description": "Application screenshot names",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "urls": {
+                    "description": "Application urls",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "description",
+                "label"
+            ],
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

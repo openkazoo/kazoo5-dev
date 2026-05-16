@@ -1,0 +1,88 @@
+paths:
+  /accounts/{ACCOUNT_ID}/lists:
+    get:
+      operationId: GetAccountsAccountIdLists
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all lists
+      tags:
+        - lists
+    put:
+      operationId: PutAccountsAccountIdLists
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/lists'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of lists
+      tags:
+        - lists
+  /accounts/{ACCOUNT_ID}/lists/{LIST_ID}:
+    delete:
+      operationId: DeleteAccountsAccountIdListsListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/LIST_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of lists
+      tags:
+        - lists
+    get:
+      operationId: GetAccountsAccountIdListsListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/LIST_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a lists by ID
+      tags:
+        - lists
+    patch:
+      operationId: PatchAccountsAccountIdListsListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/LIST_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/lists'
+      responses:
+        200:
+          description: Successful operation
+      summary: Patch specific fields of lists
+      tags:
+        - lists
+    post:
+      operationId: PostAccountsAccountIdListsListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/LIST_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/lists'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of lists
+      tags:
+        - lists

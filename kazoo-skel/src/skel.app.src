@@ -1,0 +1,11 @@
+{application,skel,
+             [{applications,[blackhole,crossbar,kazoo_amqp,kazoo_apps,
+                             kazoo_call,kazoo_data,kazoo_documents,
+                             kazoo_schemas,kazoo_stdlib,kernel,lager,stdlib,
+                             webhooks]},
+              {description,"Skel: A skeleton application useful for quickly creating KAZOO applications"},
+              {env,[{is_kazoo_app,true}]},
+              {mod,{skel_app,[]}},
+              {modules,[]},
+              {registered,[skel_cache,skel_sup]},
+              {vsn,"5.0.0"}]}.

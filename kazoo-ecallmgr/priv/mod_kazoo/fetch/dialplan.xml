@@ -1,0 +1,12 @@
+<profile name="dialplan" profile-type="fetch">
+
+	<fields>
+		<field name="fetch-dialplan" type="reference" />
+	</fields>
+
+	<params>
+		<param name="fetch-timeout" value="3500000" />
+		<param name="fetch-section" value="dialplan" />
+	</params>
+
+</profile>

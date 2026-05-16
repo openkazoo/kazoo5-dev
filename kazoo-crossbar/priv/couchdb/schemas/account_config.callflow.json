@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "account_config.callflow",
+    "description": "Schema for callflow account_config",
+    "properties": {
+        "dialog_subscribed_mwi_prefix": {
+            "description": "callflow dialog_subscribed_mwi_prefix",
+            "type": "string"
+        },
+        "hard_stop_after_successful_group": {
+            "default": false,
+            "description": "callflow hard_stop_after_successful_group",
+            "type": "boolean"
+        },
+        "voicemail": {
+            "properties": {
+                "delete_after_notify": {
+                    "default": false,
+                    "description": "callflow voicemail delete_after_notify",
+                    "type": "boolean"
+                },
+                "extension": {
+                    "default": "mp3",
+                    "description": "callflow voicemail extension",
+                    "type": "string"
+                },
+                "force_require_pin": {
+                    "default": false,
+                    "description": "callflow voicemail force_require_pin",
+                    "type": "boolean"
+                },
+                "is_voicemail_ff_rw_enabled": {
+                    "default": false,
+                    "description": "callflow voicemail is_voicemail_ff_rw_enabled",
+                    "type": "boolean"
+                },
+                "max_box_number_length": {
+                    "default": 15,
+                    "description": "callflow voicemail max_box_number_length",
+                    "type": "integer"
+                },
+                "max_message_count": {
+                    "default": 100,
+                    "description": "callflow voicemail max_message_count",
+                    "type": "integer"
+                },
+                "max_message_length": {
+                    "default": 500,
+                    "description": "callflow voicemail max_message_length",
+                    "type": "integer"
+                },
+                "max_pin_length": {
+                    "default": 6,
+                    "description": "callflow voicemail max_pin_length",
+                    "type": "integer"
+                },
+                "message_retention_duration": {
+                    "default": 93,
+                    "description": "callflow voicemail message_retention_duration",
+                    "type": "integer"
+                },
+                "min_message_size": {
+                    "default": 500,
+                    "description": "callflow voicemail min_message_size",
+                    "type": "integer"
+                },
+                "save_after_notify": {
+                    "default": false,
+                    "description": "callflow voicemail save_after_notify",
+                    "type": "boolean"
+                },
+                "seek_duration_ms": {
+                    "default": 10000,
+                    "description": "callflow voicemail seek_duration_ms",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "should_disable_callback": {
+                    "default": false,
+                    "description": "callflow voicemail should_disable_callback",
+                    "type": "boolean"
+                },
+                "should_disable_offnet_callback": {
+                    "default": true,
+                    "description": "callflow voicemail should_disable_offnet_callback",
+                    "type": "boolean"
+                },
+                "silence_hits": {
+                    "description": "callflow voicemail silence_hits",
+                    "type": "integer"
+                },
+                "silence_threshold": {
+                    "description": "callflow voicemail silence_threshold",
+                    "type": "integer"
+                },
+                "transcribe_default": {
+                    "default": false,
+                    "description": "callflow voicemail transcribe_default",
+                    "type": "boolean"
+                },
+                "vm_delete_amqp": {
+                    "default": false,
+                    "description": "callflow voicemail vm_delete_amqp",
+                    "type": "boolean"
+                },
+                "vm_message_forward_type": {
+                    "default": "only_forward",
+                    "description": "callflow voicemail vm_message_forward_type",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "type": "object"
+}

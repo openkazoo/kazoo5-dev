@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.duo.universal",
+    "description": "Schema for duo.universal system_config",
+    "properties": {
+        "api_hostname": {
+            "description": "DUO API hostname, typically api-{alphanum}.duosecurity.com",
+            "type": "string"
+        },
+        "client_id": {
+            "description": "duo universal client_id",
+            "type": "string"
+        },
+        "client_secret": {
+            "description": "duo universal client_secret",
+            "type": "string"
+        },
+        "redirect_uri": {
+            "description": "Redirect URI given to DUO to use when 2FA is successful",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

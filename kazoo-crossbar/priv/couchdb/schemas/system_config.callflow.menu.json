@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.callflow.menu",
+    "description": "Schema for callflow.menu system_config",
+    "properties": {
+        "branch_extension": {
+            "default": true,
+            "description": "Whether or not to branch extension when caller dials an extension. If true, when caller dials an extension, call will be branched, once that branch finishes if menu has a default action set, that action will be executed",
+            "support_level": "supported",
+            "type": "boolean"
+        },
+        "max_wait_for_attachments_ms": {
+            "default": 5000,
+            "description": "callflow menu max_wait_for_attachments_ms",
+            "type": "integer"
+        },
+        "min_greeting_length": {
+            "default": 1500,
+            "description": "callflow.menu minimum greeting length",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

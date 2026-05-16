@@ -1,0 +1,12 @@
+[
+    {
+        "account_id": "7600efb3424dc4b79854521fd4563d0a",
+        "app_name": "crossbar",
+        "app_version": "4.3.0",
+        "event_category": "ephemeral",
+        "event_name": "ephemeral_report_generated",
+        "node": "kazoo_apps@greate_host.com",
+        "server_id": "wer34qt43",
+        "system_log_id": "dgj3453"
+    }
+]

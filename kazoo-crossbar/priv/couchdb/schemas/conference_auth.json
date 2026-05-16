@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "conference_auth",
+    "description": "Schema for conference_auth",
+    "properties": {
+        "account_name": {
+            "description": "The account name of the conference",
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+        },
+        "conference_name": {
+            "description": "Conference name",
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+        },
+        "conference_pin": {
+            "description": "Conference member pin number",
+            "pattern": "^[0-9]+$",
+            "type": "string"
+        }
+    },
+    "required": [
+        "account_name",
+        "conference_pin",
+        "conference_name"
+    ],
+    "type": "object"
+}

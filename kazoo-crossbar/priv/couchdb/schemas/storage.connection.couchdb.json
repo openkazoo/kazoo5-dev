@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "storage.connection.couchdb",
+    "description": "schema for CouchDB connection entry",
+    "properties": {
+        "driver": {
+            "default": "kazoo_couch",
+            "description": "Which KAZOO database driver to use",
+            "enum": [
+                "kazoo_couch"
+            ]
+        },
+        "name": {
+            "description": "Friendly name for the connection",
+            "type": "string"
+        },
+        "settings": {
+            "properties": {
+                "connect_options": {
+                    "properties": {
+                        "keepalive": {
+                            "description": "Whether to keep the connection alive between requests or not",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "connect_timeout": {
+                    "description": "How long to wait, in milliseconds, for the TCP connection to establish",
+                    "type": "integer"
+                },
+                "credentials": {
+                    "properties": {
+                        "password": {
+                            "description": "Database Auth Password",
+                            "type": "string"
+                        },
+                        "username": {
+                            "description": "Database Auth Username",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "username",
+                        "password"
+                    ],
+                    "type": "object"
+                },
+                "ip": {
+                    "description": "Database IP address (or proxy IP address fronting the database)",
+                    "type": "string"
+                },
+                "max_pipeline_size": {
+                    "type": "integer"
+                },
+                "max_sessions": {
+                    "type": "integer"
+                },
+                "pool": {
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "size": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "size"
+                    ],
+                    "type": "object"
+                },
+                "port": {
+                    "description": "The port to use when connecting to the database (or proxy)",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "ip",
+                "port"
+            ],
+            "type": "object"
+        }
+    },
+    "required": [
+        "driver",
+        "settings"
+    ],
+    "type": "object"
+}

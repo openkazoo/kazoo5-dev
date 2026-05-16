@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "application_blocklist",
+    "description": "List of blocked apps for the account which queries for API endpoint applications",
+    "properties": {
+        "app_id": {
+            "description": "ID of the application that has been blocklisted",
+            "type": "string"
+        },
+        "app_type": {
+            "description": "Application type either monster-ui or commland or some other type",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

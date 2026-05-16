@@ -1,0 +1,37 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "match_lists.rule",
+    "description": "Match list rule - express the logic of a match",
+    "properties": {
+        "name": {
+            "description": "Friendly name of the rule",
+            "maxLength": 255,
+            "minLength": 3,
+            "type": "string"
+        },
+        "regex": {
+            "description": "Regular expression to match with when type=regex",
+            "type": "string"
+        },
+        "target": {
+            "description": "The target field to match against - context-dependent",
+            "type": "string"
+        },
+        "temporal_route_id": {
+            "description": "When type=temporal_route, set this to the ID of the temporal route (or route set) to use",
+            "type": "string"
+        },
+        "type": {
+            "enum": [
+                "regex",
+                "temporal_route"
+            ],
+            "type": "string"
+        }
+    },
+    "required": [
+        "name",
+        "type"
+    ],
+    "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "app_whitelabel",
+    "description": "Application Whitelabel",
+    "properties": {
+        "i18n": {
+            "$ref": "app_i18n"
+        },
+        "icon": {
+            "description": "Application icon",
+            "type": "string"
+        },
+        "screenshots": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}

@@ -1,0 +1,19 @@
+CWD = $(shell pwd -P)
+ROOT ?= $(realpath $(CWD)/..)
+
+DEPS_DIR ?= $(CURDIR)
+
+ERLC_OPTS += +debug_info -DWITH_JIFFY=1
+
+.DEFAULT_GOAL := all
+
+clean::
+	$(if $(wildcard ./*/), rm -rf ./*/)
+	$(if $(wildcard .erlang.mk), rm -rf .erlang.mk)
+
+ifneq (,$(wildcard $(DEPS_MK)))
+include $(DEPS_MK)
+endif
+
+include $(ROOT)/make/deps.mk
+include $(ROOT)/erlang.mk

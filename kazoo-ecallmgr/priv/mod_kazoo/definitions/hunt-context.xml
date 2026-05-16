@@ -1,0 +1,7 @@
+<definition name="hunt-context">
+	<field name="variable_sofia_profile_name" as="Hunt-Profile" />
+	<field name="Hunt-Context" />
+	<field name="Hunt-Dialplan" />
+	<field name="Hunt-Destination-Number" />
+	<field name="Hunt-Extension" />
+</definition>

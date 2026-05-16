@@ -1,0 +1,142 @@
+#!/bin/bash
+
+if [ -f /etc/default/freeswitch ]; then
+		. /etc/default/freeswitch
+fi
+
+if [ -f /etc/sysconfig/freeswitch ]; then
+	. /etc/sysconfig/freeswitch
+fi
+
+if [ -f /etc/kazoo/freeswitch/env ]; then
+	. /etc/kazoo/freeswitch/env
+fi
+
+RETVAL=1
+USER=${FS_USER:-freeswitch}
+BIN_FILE=${FS_BIN:-/usr/bin/freeswitch}
+PID_FILE=${FS_PID:-/var/run/freeswitch/freeswitch.pid}
+CFG_FILE=${FS_CONFIG:-/etc/kazoo/freeswitch}
+RAM_DISK_SIZE=${RAM_DISK_SIZE:-300m}
+RAM_DISK_ENABLED=${RAM_DISK_ENABLED:-true}
+export HOME=${FS_HOME:-/var/lib/kazoo-freeswitch}
+export MALLOC_ARENA_MAX=1
+
+if [ -z "${FREESWITCH_ARGS}" ]; then
+	FREESWITCH_ARGS="-nonat -conf ${CFG_FILE} -run /var/run/freeswitch -db /var/lib/kazoo-freeswitch/db -log /var/log/freeswitch -cache /var/lib/kazoo-freeswitch/cache -sounds /usr/share/kazoo-freeswitch/sounds -storage /var/lib/kazoo-freeswitch/storage"
+fi
+
+prepare() {
+	mkdir -p /var/log/freeswitch
+	chown -R ${USER} /var/log/freeswitch
+	mkdir -p /var/lib/kazoo-freeswitch/{db,cache,storage}
+	# we dont ever want FS cache to persist. Delete the db if its there
+	rm -rf /var/lib/kazoo-freeswitch/db/*
+	ram_disk
+	chown -R ${USER} /var/lib/kazoo-freeswitch
+	mkdir -p /usr/share/kazoo-freeswitch/sounds
+	chown -R ${USER} /usr/share/kazoo-freeswitch/sounds
+	mkdir -p /var/run/freeswitch
+	chown -R ${USER} /var/run/freeswitch
+	if [ -e ${PID_FILE} ]; then
+		rm -rf ${PID_FILE}
+	fi	
+        RETVAL=$?
+}
+
+ram_disk() {
+	if [ "$RAM_DISK_ENABLED" == "true" ]; then
+		# mount the tempfs is its not already there
+	    if ! mountpoint -q "/var/lib/kazoo-freeswitch/db"; then
+	        /usr/bin/mkdir -p "/var/lib/kazoo-freeswitch/db"
+	        /usr/bin/mount -o size="$RAM_DISK_SIZE" -t tmpfs tmpfs "/var/lib/kazoo-freeswitch/db"
+	    fi
+
+	    # Make sure the current mount is tempfs and if not, unmount/remount it
+	    if [ "$(findmnt -no fstype "/var/lib/kazoo-freeswitch/db")" != "tmpfs" ]; then
+	        /usr/bin/umount "/var/lib/kazoo-freeswitch/db"
+	        /usr/bin/mount -o size="$RAM_DISK_SIZE" -t tmpfs tmpfs "/var/lib/kazoo-freeswitch/db"
+	    fi
+	fi
+}
+
+start() {
+	cd ${HOME}
+
+	if fs_cli -x 'status' > /dev/null 2>&1; then
+		echo "FreeSWITCH is already running!"
+		return
+	fi
+
+	set -- ${BIN_FILE} ${FREESWITCH_ARGS} ${FREESWITCH_PARAMS} "$@"
+	if [ "$(whoami)" == "${USER}" ]; then
+		exec "$@"
+	else
+		runuser -s /bin/bash ${USER} -c "$*"
+	fi
+	RETVAL=$?
+
+	if [ ${RETVAL} -ne 0 ]; then
+		echo "Failed to start FreeSWITCH!"
+		RETVAL=1
+	fi
+}
+
+stop() {
+	cd ${HOME}
+	${BIN_FILE} -stop > /dev/null 2>&1
+	killall freeswitch
+	RETVAL=$?
+}
+
+status() {
+	fs_cli -x 'status' && fs_cli -x 'erlang status'
+	RETVAL=$?
+}
+
+restart() {
+	stop
+	start
+}
+
+pause() {
+	fs_cli -x 'fsctl pause'
+}
+
+resume() {
+	fs_cli -x 'fsctl resume'
+}
+
+case "$1" in
+	prepare)
+		prepare
+		;;
+	background)
+		shift
+		start "-ncwait" $@
+		;;
+	start)
+		shift
+		start $@
+		;;
+	stop)
+		stop
+		;;
+	status)
+		status
+		;;
+	restart)
+		restart
+		;;
+	pause)
+		pause
+		;;
+	resume)
+		resume
+		;;
+	*)
+		echo "Usage: freeswitch {prepare|start|background|stop|restart|status|pause|resume}"
+		;;
+esac
+
+exit ${RETVAL}

@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.auth",
+    "description": "Schema for auth system_config",
+    "properties": {
+        "default_multi_factor_provider": {
+            "default": "duo",
+            "description": "Default multi factor authentication provider name",
+            "type": "string"
+        },
+        "qrcode_initial_counter": {
+            "default": 2600,
+            "description": "auth qrcode_initial_counter",
+            "type": "integer"
+        },
+        "qrcode_issuer": {
+            "default": "KAZOO",
+            "description": "auth qrcode_issuer",
+            "type": "string"
+        },
+        "qrcode_key_type": {
+            "default": "totp",
+            "description": "auth qrcode_key_type",
+            "type": "string"
+        },
+        "secret_for_user_signature": {
+            "description": "auth secret for user signature",
+            "type": "string"
+        },
+        "system_key": {
+            "description": "auth system key",
+            "type": "string"
+        },
+        "totp_period_s": {
+            "default": 30,
+            "description": "auth totp_period_s",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

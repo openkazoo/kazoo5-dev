@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "enrollment",
+    "description": "Enrollments represent the account's accepted capabilities from the cluster or reseller",
+    "properties": {
+        "enabled": {
+            "description": "Whether the enrollment is enabled on the account",
+            "type": "boolean"
+        },
+        "enrolled": {
+            "description": "Timestamp, in gregorian seconds, when the enrollment was last toggled",
+            "type": "integer"
+        }
+    },
+    "type": "object"
+}

@@ -1,0 +1,29 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "marketplace_settings",
+    "description": "2600Hz Marketplace Connector settings",
+    "properties": {
+        "access_code": {
+            "description": "Access Code from Marketplace Portal during cluster link request",
+            "type": "string"
+        },
+        "settings": {
+            "properties": {
+                "api_url": {
+                    "description": "Crossbar API URL to be used to serve UI applications",
+                    "type": "string"
+                },
+                "is_aio_cluster": {
+                    "description": "Indicates all Kazoo VM nodes are running same list of Kazoo Apps",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "A friendly name for cluster",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

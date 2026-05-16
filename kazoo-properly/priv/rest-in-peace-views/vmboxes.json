@@ -1,0 +1,35 @@
+{
+    "_id": "_design/vmboxes",
+    "kazoo": {
+        "view_map": [
+            {
+                "classification": "account"
+            }
+        ]
+    },
+    "language": "javascript",
+    "views": {
+        "crossbar_listing": {
+            "map": [
+                "function(doc) {",
+                "  if (doc.pvt_type != 'vmbox' || doc.pvt_deleted) return;",
+                "  emit(doc.name, {",
+                "    id: doc._id,",
+                "    name: doc.name,",
+                "    mailbox: doc.mailbox,",
+                "    owner_id: doc.owner_id,",
+                "    flags: doc.flags || []",
+                "  });",
+                "}"
+            ]
+        },
+        "listing_by_mailbox": {
+            "map": [
+                "function(doc) {",
+                "  if (doc.pvt_type != 'vmbox' || doc.pvt_deleted) return;",
+                "  emit(parseInt(doc.mailbox, 10), null);",
+                "}"
+            ]
+        }
+    }
+}

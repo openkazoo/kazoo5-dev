@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "call_failover",
+    "description": "The device call failover parameters, to replace the device with an extension/phone number when device is offline.",
+    "properties": {
+        "direct_calls_only": {
+            "default": false,
+            "description": "Determines if the calls that are not directly sent to the device should be forwarded",
+            "support_level": "supported",
+            "type": "boolean"
+        },
+        "enabled": {
+            "default": false,
+            "description": "Determines if the call failover should be used when device is offline",
+            "type": "boolean"
+        },
+        "ignore_early_media": {
+            "default": true,
+            "description": "The option to determine if early media from the call forwarded number should ignored",
+            "type": "boolean"
+        },
+        "keep_caller_id": {
+            "default": true,
+            "description": "Determines if the caller id is kept when the call is forwarded, if not the devices caller id is used",
+            "support_level": "supported",
+            "type": "boolean"
+        },
+        "number": {
+            "description": "The number to forward calls to",
+            "maxLength": 35,
+            "support_level": "supported",
+            "type": "string"
+        },
+        "require_keypress": {
+            "default": true,
+            "description": "Determines if the callee is prompted to press 1 to accept the call",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

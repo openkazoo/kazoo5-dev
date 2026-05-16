@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "callflows.call_pickup",
+    "description": "Validator for the call_pickup callflow data object",
+    "properties": {
+        "skip_module": {
+            "description": "When set to true this callflow action is skipped, advancing to the wildcard branch (if any)",
+            "type": "boolean"
+        },
+        "target_call_id": {
+            "description": "The existing call-id to connect to the caller",
+            "minLength": 1,
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

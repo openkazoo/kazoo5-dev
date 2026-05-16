@@ -1,0 +1,121 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "call_forward",
+    "additionalProperties": false,
+    "description": "Call Forward",
+    "properties": {
+        "busy": {
+            "$ref": "call_forward_type",
+            "type": "object"
+        },
+        "direct_calls_only": {
+            "default": false,
+            "type": "boolean"
+        },
+        "enabled": {
+            "default": false,
+            "type": "boolean"
+        },
+        "ignore_early_media": {
+            "default": true,
+            "type": "boolean"
+        },
+        "keep_caller_id": {
+            "default": true,
+            "type": "boolean"
+        },
+        "no_answer": {
+            "$ref": "call_forward_type",
+            "type": "object"
+        },
+        "number": {
+            "maxLength": 35,
+            "type": "string"
+        },
+        "require_keypress": {
+            "default": true,
+            "type": "boolean"
+        },
+        "selective": {
+            "additionalProperties": false,
+            "description": "Conditionally check match lists to determine if call forwarding should be used",
+            "properties": {
+                "direct_calls_only": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "enabled": {
+                    "default": false,
+                    "type": "boolean"
+                },
+                "ignore_early_media": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "keep_caller_id": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "number": {
+                    "maxLength": 35,
+                    "type": "string"
+                },
+                "require_keypress": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "rules": {
+                    "description": "Match list rules to check for call forwarding",
+                    "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                            "direct_calls_only": {
+                                "default": false,
+                                "type": "boolean"
+                            },
+                            "enabled": {
+                                "default": false,
+                                "type": "boolean"
+                            },
+                            "ignore_early_media": {
+                                "default": true,
+                                "type": "boolean"
+                            },
+                            "keep_caller_id": {
+                                "default": true,
+                                "type": "boolean"
+                            },
+                            "match_list_id": {
+                                "type": "string"
+                            },
+                            "number": {
+                                "maxLength": 35,
+                                "type": "string"
+                            },
+                            "require_keypress": {
+                                "default": true,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "substitute": {
+            "default": true,
+            "description": "Determines if the call forwarding replaces the device",
+            "type": "boolean"
+        },
+        "unconditional": {
+            "$ref": "call_forward_type",
+            "type": "object"
+        }
+    },
+    "required": [
+        "enabled"
+    ],
+    "type": "object"
+}

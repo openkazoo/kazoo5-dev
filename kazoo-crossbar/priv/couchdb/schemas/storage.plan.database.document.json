@@ -1,0 +1,74 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "storage.plan.database.document",
+    "description": "schema for document type storage plan",
+    "properties": {
+        "attachments": {
+            "$ref": "storage.plan.database.attachment"
+        },
+        "connection": {
+            "kazoo-validation": true,
+            "type": "string"
+        },
+        "range": {
+            "patternProperties": {
+                "[0-9]{6}-[0-9]{6}": {
+                    "properties": {
+                        "attachments": {
+                            "$ref": "storage.plan.database.attachment"
+                        },
+                        "connection": {
+                            "kazoo-validation": true,
+                            "type": "string"
+                        },
+                        "secondary_connections": {
+                            "description": "Save changes to additional connections asynchronously",
+                            "items": {
+                                "description": "Connection UUID to use",
+                                "kazoo-validation": true,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        },
+        "regex": {
+            "patternProperties": {
+                ".+": {
+                    "properties": {
+                        "attachments": {
+                            "$ref": "storage.plan.database.attachment"
+                        },
+                        "connection": {
+                            "kazoo-validation": true,
+                            "type": "string"
+                        },
+                        "secondary_connections": {
+                            "description": "Save changes to additional connections asynchronously",
+                            "items": {
+                                "description": "Connection UUID to use",
+                                "kazoo-validation": true,
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        },
+        "secondary_connections": {
+            "description": "Save changes to additional connections asynchronously",
+            "items": {
+                "description": "Connection UUID to use",
+                "kazoo-validation": true,
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}

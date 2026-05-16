@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "callflows.tones",
+    "description": "Validator for the tones callflow data object",
+    "properties": {
+        "skip_module": {
+            "description": "When set to true this callflow action is skipped, advancing to the wildcard branch (if any)",
+            "type": "boolean"
+        },
+        "tones": {
+            "description": "list of tones to play to caller",
+            "items": {
+                "$ref": "tone",
+                "type": "object"
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}

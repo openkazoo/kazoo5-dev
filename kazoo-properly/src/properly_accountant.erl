@@ -1,0 +1,117 @@
+%%%-----------------------------------------------------------------------------
+%%% @copyright (C) 2010-2023, 2600Hz
+%%% @doc AMQP consumer for events the app is interested in
+%%%
+%%% This Source Code Form is subject to the terms of the Mozilla Public
+%%% License, v. 2.0. If a copy of the MPL was not distributed with this
+%%% file, You can obtain one at https://mozilla.org/MPL/2.0/.
+%%%
+%%% @end
+%%%-----------------------------------------------------------------------------
+-module(properly_accountant).
+-behaviour(gen_server).
+
+-export([start_link/0
+        ,create_account/2, create_account/3
+        ]).
+-export([init/1
+        ,handle_call/3
+        ,handle_cast/2
+        ,handle_info/2
+        ,terminate/2
+        ,code_change/3
+        ]).
+
+-include("properly.hrl").
+
+-define(SERVER, ?MODULE).
+
+-type state() :: 'ok'.
+
+%%%=============================================================================
+%%% API
+%%%=============================================================================
+
+%%------------------------------------------------------------------------------
+%% @doc Starts the server.
+%% @end
+%%------------------------------------------------------------------------------
+-spec start_link() -> kz_types:startlink_ret().
+start_link() ->
+    gen_server:start_link({'local', ?SERVER}, ?MODULE, [], []).
+
+-spec create_account(pqc_cb_api:state(), kz_term:ne_binary() | kz_json:object()) ->
+          kz_term:ne_binary() |
+          {'error', kz_term:ne_binary()}.
+create_account(API, Account) ->
+    gen_server:call(?SERVER, {'create_account', API, Account}, ?MILLISECONDS_IN_MINUTE).
+
+-spec create_account(pqc_cb_api:state(), kz_term:ne_binary() | kz_json:object(), kz_term:ne_binary()) ->
+          kz_term:ne_binary() |
+          {'error', kz_term:ne_binary()}.
+create_account(API, Account, AuthAccountId) ->
+    gen_server:call(?SERVER, {'create_account', API, Account, AuthAccountId}, ?MILLISECONDS_IN_MINUTE).
+
+%%%=============================================================================
+%%% gen_server callbacks
+%%%=============================================================================
+
+%%------------------------------------------------------------------------------
+%% @doc Initializes the server.
+%% @end
+%%------------------------------------------------------------------------------
+-spec init([]) -> {'ok', state()}.
+init([]) ->
+    {'ok', 'ok'}.
+
+%%------------------------------------------------------------------------------
+%% @doc Handling call messages.
+%% @end
+%%------------------------------------------------------------------------------
+-spec handle_call(any(), kz_term:pid_ref(), state()) -> kz_types:handle_call_ret_state(state()).
+handle_call({'create_account', API, AccountName}, _From, State) ->
+    {'reply', pqc_cb_accounts:create(API, AccountName), State};
+handle_call({'create_account', API, AccountName, AuthAccountId}, _From, State) ->
+    {'reply', pqc_cb_accounts:create(API, AccountName, AuthAccountId), State};
+handle_call(_Req, _From, State) ->
+    lager:warning("unhandled req from ~p: ~p", [_From, _Req]),
+    {'reply', {'error', 'not_found'}, State}.
+
+%%------------------------------------------------------------------------------
+%% @doc Handling cast messages.
+%% @end
+%%------------------------------------------------------------------------------
+-spec handle_cast(any(), state()) -> kz_types:handle_cast_ret_state(state()).
+handle_cast(_Msg, State) ->
+    {'noreply', State}.
+
+%%------------------------------------------------------------------------------
+%% @doc Handling all non call/cast messages.
+%% @end
+%%------------------------------------------------------------------------------
+-spec handle_info(any(), state()) -> kz_types:handle_info_ret_state(state()).
+handle_info(_Info, State) ->
+    {'noreply', State}.
+
+%%------------------------------------------------------------------------------
+%% @doc This function is called by a `gen_server' when it is about to
+%% terminate. It should be the opposite of `Module:init/1' and do any
+%% necessary cleaning up. When it returns, the `gen_server' terminates
+%% with Reason. The return value is ignored.
+%% @end
+%%------------------------------------------------------------------------------
+-spec terminate(any(), state()) -> 'ok'.
+terminate(_Reason, _State) ->
+    lager:debug("server terminating: ~p", [_Reason]).
+
+%%------------------------------------------------------------------------------
+%% @doc Convert process state when code is changed.
+%% @end
+%%------------------------------------------------------------------------------
+-spec code_change(any(), state(), any()) -> {'ok', state()}.
+code_change(_OldVsn, State, _Extra) ->
+    {'ok', State}.
+
+%%%=============================================================================
+%%% Internal functions
+%%%=============================================================================

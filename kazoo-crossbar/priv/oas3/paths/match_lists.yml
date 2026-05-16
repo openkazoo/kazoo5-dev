@@ -1,0 +1,88 @@
+paths:
+  /accounts/{ACCOUNT_ID}/match_lists:
+    get:
+      operationId: GetAccountsAccountIdMatchLists
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all match_lists
+      tags:
+        - match_lists
+    put:
+      operationId: PutAccountsAccountIdMatchLists
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/match_lists'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of match_lists
+      tags:
+        - match_lists
+  /accounts/{ACCOUNT_ID}/match_lists/{MATCH_LIST_ID}:
+    delete:
+      operationId: DeleteAccountsAccountIdMatchListsMatchListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/MATCH_LIST_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of match_lists
+      tags:
+        - match_lists
+    get:
+      operationId: GetAccountsAccountIdMatchListsMatchListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/MATCH_LIST_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a match_lists by ID
+      tags:
+        - match_lists
+    patch:
+      operationId: PatchAccountsAccountIdMatchListsMatchListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/MATCH_LIST_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/match_lists'
+      responses:
+        200:
+          description: Successful operation
+      summary: Patch specific fields of match_lists
+      tags:
+        - match_lists
+    post:
+      operationId: PostAccountsAccountIdMatchListsMatchListId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/MATCH_LIST_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/match_lists'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of match_lists
+      tags:
+        - match_lists

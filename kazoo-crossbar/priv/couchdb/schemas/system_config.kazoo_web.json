@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "system_config.kazoo_web",
+    "description": "Schema for kazoo_web system_config",
+    "properties": {
+        "allow_restricted_ips": {
+            "default": true,
+            "description": "Whether to allow webhook callbacks to have URLs containing restricted IPs (private network, localhost, etc). true maintains backwards compat but allows nefarious URLs to probe internal networks for services",
+            "type": "boolean"
+        },
+        "client": {
+            "properties": {
+                "blacklist": {
+                    "properties": {
+                        "cidrs": {
+                            "default": [
+                                "127.0.0.1/32",
+                                "0.0.0.0/32"
+                            ],
+                            "description": "List of CIDRs to disallow from being in client-supplied URLs (pivot, webhooks, etc)",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "hosts": {
+                            "default": [
+                                "localhost",
+                                "localhost.localdomain"
+                            ],
+                            "description": "List of hostnames to disallow from being in the client-supplied URLs (pivot, webhooks, etc)",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "ports": {
+                            "default": [
+                                5984,
+                                5984,
+                                15984,
+                                15986,
+                                4369,
+                                15672,
+                                22002
+                            ],
+                            "description": "List of port numbers to disallow from being in the client-supplied URLs (pivot, webhooks, etc)",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "type": "array"
+                        }
+                    }
+                }
+            }
+        },
+        "should_validate_dns": {
+            "default": true,
+            "description": "kazoo_web should_validate_dns",
+            "type": "boolean"
+        }
+    },
+    "type": "object"
+}

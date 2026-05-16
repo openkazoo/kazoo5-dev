@@ -1,0 +1,385 @@
+paths:
+  /accounts/{ACCOUNT_ID}/applications:
+    get:
+      operationId: GetAccountsAccountIdApplications
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get all applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/application/{APP_ID}:
+    delete:
+      operationId: DeleteAccountsAccountIdApplicationsApplicationAppId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of applications
+      tags:
+        - applications
+    get:
+      operationId: GetAccountsAccountIdApplicationsApplicationAppId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a applications by ID
+      tags:
+        - applications
+    patch:
+      operationId: PatchAccountsAccountIdApplicationsApplicationAppId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Patch specific fields of applications
+      tags:
+        - applications
+    post:
+      operationId: PostAccountsAccountIdApplicationsApplicationAppId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of applications
+      tags:
+        - applications
+    put:
+      operationId: PutAccountsAccountIdApplicationsApplicationAppId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/application/{APP_ID}/icon:
+    delete:
+      operationId: DeleteAccountsAccountIdApplicationsApplicationAppIdIcon
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of applications
+      tags:
+        - applications
+    get:
+      operationId: GetAccountsAccountIdApplicationsApplicationAppIdIcon
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get icon of applications
+      tags:
+        - applications
+    post:
+      operationId: PostAccountsAccountIdApplicationsApplicationAppIdIcon
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/application/{APP_ID}/screenshots:
+    post:
+      operationId: PostAccountsAccountIdApplicationsApplicationAppIdScreenshots
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/application/{APP_ID}/screenshots/{SCREENSHOT_ID}:
+    delete:
+      operationId: |-
+        DeleteAccountsAccountIdApplicationsApplicationAppIdScreenshotsScreenshotId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+        - $ref: '../oas3-parameters.yml#/SCREENSHOT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of applications
+      tags:
+        - applications
+    get:
+      operationId: GetAccountsAccountIdApplicationsApplicationAppIdScreenshotsScreenshotId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+        - $ref: '../oas3-parameters.yml#/SCREENSHOT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a applications by ID
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}:
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppType
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a applications by ID
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}/blocklists:
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppTypeBlocklists
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get blocklists of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}/entitlements:
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppTypeEntitlements
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get entitlements of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}/{APP_ID}:
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppTypeAppId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a applications by ID
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}/{APP_ID}/block:
+    delete:
+      operationId: DeleteAccountsAccountIdApplicationsAppTypeAppIdBlock
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of applications
+      tags:
+        - applications
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppTypeAppIdBlock
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get block of applications
+      tags:
+        - applications
+    post:
+      operationId: PostAccountsAccountIdApplicationsAppTypeAppIdBlock
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of applications
+      tags:
+        - applications
+    put:
+      operationId: PutAccountsAccountIdApplicationsAppTypeAppIdBlock
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}/{APP_ID}/entitlement:
+    delete:
+      operationId: DeleteAccountsAccountIdApplicationsAppTypeAppIdEntitlement
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Delete an instance of applications
+      tags:
+        - applications
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppTypeAppIdEntitlement
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get entitlement of applications
+      tags:
+        - applications
+    post:
+      operationId: PostAccountsAccountIdApplicationsAppTypeAppIdEntitlement
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Update an instance of applications
+      tags:
+        - applications
+    put:
+      operationId: PutAccountsAccountIdApplicationsAppTypeAppIdEntitlement
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../oas3-schemas.yml#/applications'
+      responses:
+        200:
+          description: Successful operation
+      summary: Add an instance of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}/{APP_ID}/icon:
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppTypeAppIdIcon
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get icon of applications
+      tags:
+        - applications
+  /accounts/{ACCOUNT_ID}/applications/{APP_TYPE}/{APP_ID}/screenshots/{SCREENSHOT_ID}:
+    get:
+      operationId: GetAccountsAccountIdApplicationsAppTypeAppIdScreenshotsScreenshotId
+      parameters:
+        - $ref: '../oas3-parameters.yml#/auth_token_header'
+        - $ref: '../oas3-parameters.yml#/ACCOUNT_ID'
+        - $ref: '../oas3-parameters.yml#/APP_TYPE'
+        - $ref: '../oas3-parameters.yml#/APP_ID'
+        - $ref: '../oas3-parameters.yml#/SCREENSHOT_ID'
+      responses:
+        200:
+          description: Successful operation
+      summary: Get a applications by ID
+      tags:
+        - applications

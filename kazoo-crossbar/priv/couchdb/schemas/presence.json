@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "presence",
+    "description": "Change and request presence status",
+    "properties": {
+        "action": {
+            "$ref": "presence.action"
+        },
+        "reset": {
+            "description": "Deprecated way of running reset action",
+            "support_level": "deprecated",
+            "type": "boolean"
+        },
+        "state": {
+            "$ref": "presence.state"
+        }
+    },
+    "required": [
+        "action"
+    ],
+    "type": "object"
+}

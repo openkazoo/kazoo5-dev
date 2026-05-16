@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "_id": "scope_restrictions",
+    "description": "Crossbar Scope Restrictions  Definition",
+    "properties": {
+        "id": {
+            "description": "Scope Restriction unique identifier",
+            "type": "string"
+        },
+        "scopes": {
+            "default": [],
+            "description": "List of enforced scopes",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        }
+    },
+    "token_restrictions": {
+        "description": "Token Restrictions to enforce for these scopes",
+        "patternProperties": {
+            "^\\w+$": {
+                "items": {
+                    "description": "Endpoint (first path token) to which to apply restrictions. '_' matches any endpoint",
+                    "properties": {
+                        "allowed_accounts": {
+                            "description": "Account allowed to match this item",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "uniqueItems": true
+                        },
+                        "rules": {
+                            "description": "Rules applied to endpoint parameters",
+                            "patternProperties": {
+                                "^[\\w/#*]+$": {
+                                    "description": "verbs",
+                                    "items": {
+                                        "enum": [
+                                            "GET",
+                                            "PUT",
+                                            "POST",
+                                            "PATCH",
+                                            "DELETE",
+                                            "_"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": "array",
+                                    "uniqueItems": true
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "array"
+            }
+        },
+        "type": "object"
+    },
+    "type": "object"
+}

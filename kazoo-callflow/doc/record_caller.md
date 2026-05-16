@@ -1,0 +1,30 @@
+## Record Caller
+
+### About Record Caller
+
+Record the media stream, sending it to a configured URL on call completion.
+
+#### Schema
+
+Record the caller's audio stream
+
+
+
+Key | Description | Type | Default | Required | Support Level
+--- | ----------- | ---- | ------- | -------- | -------------
+`format` | What format to store the recording on disk | `string('mp3' | 'wav')` |   | `false` |  
+`media_id` |   | `string()` |   | `false` |  
+`media_name` | the name of media | `string()` |   | `false` |  
+`method` | HTTP verb to use when sending the recording to the supplied URL | `string('put' | 'post')` | `put` | `false` |  
+`origin` | How the recording was started | `string()` |   | `false` |  
+`record_min_sec` | The minimum length, in seconds, the recording must be to be considered successful. Otherwise it is deleted | `integer()` |   | `false` |  
+`record_on_answer` | Whether to delay the recording until the channel is answered | `boolean()` | `false` | `false` |  
+`record_on_bridge` | Whether to delay the recording until the channel is bridged | `boolean()` | `false` | `false` |  
+`record_sample_rate` | What sampling rate to use on the recording | `integer()` |   | `false` |  
+`should_follow_transfer` | If true, the recording will continue after a transfer on the active leg | `boolean()` | `true` | `false` |  
+`skip_module` | When set to true this callflow action is skipped, advancing to the wildcard branch (if any) | `boolean()` |   | `false` |  
+`time_limit` | Time limit, in seconds, for the recording | `integer(5..10800)` | `3600` | `false` |  
+`url` | The URL to use when sending the recording for storage | `string(5..)` |   | `false` |  
+
+
+

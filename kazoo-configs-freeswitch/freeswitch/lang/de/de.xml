@@ -1,0 +1,22 @@
+<include>
+  <language name="de" say-module="de" sound-prefix="$${sounds_dir}/de/de/lena" tts-engine="cepstral" tts-voice="lena">
+    <phrases>
+      <macros>
+        <X-PRE-PROCESS cmd="include" data="demo/demo.xml"/>
+        <!--voicemail_de_tts is purely implemented with tts, we need a files based implementation too -->
+        <X-PRE-PROCESS cmd="include" data="vm/tts.xml"/>
+        <X-PRE-PROCESS cmd="include" data="vm/sounds.xml"/>
+      </macros>
+    </phrases>
+  </language>
+<!--
+For Emacs:
+Local Variables:
+mode:xml
+indent-tabs-mode:nil
+tab-width:2
+c-basic-offset:2
+End:
+For VIM:
+vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab:
+-->
